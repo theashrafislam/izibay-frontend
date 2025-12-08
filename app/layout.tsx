@@ -29,7 +29,7 @@ export default function RootLayout({
       >
         {/* <Marquee> */}
 
-        <Marquee className="py-5 bg-black text-white text-lg font-bold" speed={100}>
+        <Marquee className="lg:py-3 bg-black text-white text-lg font-bold" speed={100}>
           <p >10% Flat discount at order over BDT 999!</p>
           <FaCircle className="px-4 text-white text-5xl"/>
           <p >20% Flat discount at order over BDT 1999!</p>

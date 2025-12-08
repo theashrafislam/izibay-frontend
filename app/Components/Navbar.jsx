@@ -37,10 +37,10 @@ const Navbar = () => {
             </div>
 
             {/* mobile and table version  */}
-            <div className='lg:hidden flex items-center justify-between px-3 py-5'>
+            <div className='lg:hidden flex items-center justify-between px-3 py-4'>
                 {/* menu and search button  */}
                 <div className='flex items-center gap-4'>
-                    <IoMenu className='text-2xl'/>
+                    <IoMenu className='text-3xl'/>
                     <RiSearchLine className='text-2xl'/>
                 </div>
 
@@ -52,7 +52,7 @@ const Navbar = () => {
 
                 {/* cart icon  */}
                 <div>
-                    <IoCartOutline className='text-2xl'/>
+                    <IoCartOutline className='text-3xl'/>
                 </div>
             </div>
         </nav>
