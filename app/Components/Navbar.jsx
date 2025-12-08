@@ -2,14 +2,14 @@
 import Link from 'next/link';
 import React from 'react';
 import { FaRegUser } from 'react-icons/fa';
-import { IoCartOutline } from 'react-icons/io5';
+import { IoCartOutline, IoMenu } from 'react-icons/io5';
 import { RiSearchLine } from 'react-icons/ri';
 
 const Navbar = () => {
     return (
         <nav className='bg-[#F0F0F0]'>
             {/* desktop version  */}
-            <div className='flex justify-between items-center py-9 max-w-7xl mx-auto'>
+            <div className='hidden lg:flex justify-between items-center py-9 max-w-7xl mx-auto'>
                 {/* logo */}
                 <div>
                     {/* <Image alt='Izibay' src={} width={100} height={100}/> */}
@@ -33,6 +33,26 @@ const Navbar = () => {
                     <RiSearchLine className='text-xl'/>
                     <FaRegUser className='text-xl'/>
                     <IoCartOutline className='text-xl'/>
+                </div>
+            </div>
+
+            {/* mobile and table version  */}
+            <div className='lg:hidden flex items-center justify-between px-3 py-5'>
+                {/* menu and search button  */}
+                <div className='flex items-center gap-4'>
+                    <IoMenu className='text-2xl'/>
+                    <RiSearchLine className='text-2xl'/>
+                </div>
+
+                {/* logo  */}
+                <div>
+                    {/* <Image alt='Izibay' src={} width={100} height={100}/> */}
+                    <Link className='text-3xl font-bold text-red-500 cursor-pointer' href={'/'}>Izibay</Link>
+                </div>
+
+                {/* cart icon  */}
+                <div>
+                    <IoCartOutline className='text-2xl'/>
                 </div>
             </div>
         </nav>

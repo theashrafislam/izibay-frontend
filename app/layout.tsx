@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar"
+import Marquee from "react-fast-marquee";
+import { FaCircle } from "react-icons/fa";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -25,6 +27,13 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased`}
       >
+        {/* <Marquee> */}
+
+        <Marquee className="py-5 bg-black text-white text-lg font-bold" speed={100}>
+          <p >10% Flat discount at order over BDT 999!</p>
+          <FaCircle className="px-4 text-white text-5xl"/>
+          <p >20% Flat discount at order over BDT 1999!</p>
+        </Marquee>
         <Navbar />
         <div className="max-w-7xl mx-auto">
           {children}
