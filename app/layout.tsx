@@ -23,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} antialiased max-w-7xl mx-auto`}
+        className={`${montserrat.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <div className="max-w-7xl mx-auto">
+          {children}
+        </div>
       </body>
     </html>
   );
