@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { FaFacebook, FaLinkedin, FaPinterest, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const menuItems = [
     { name: 'Home', href: '/' },
@@ -15,8 +15,6 @@ const menuItems = [
 const socialItems = [
     { Icon: FaFacebook, href: '#' },
     { Icon: FaInstagram, href: '#' },
-    { Icon: FaPinterest, href: '#' },
-    { Icon: FaYoutube, href: '#' },
     { Icon: FaLinkedin, href: '#' },
     { Icon: FaWhatsapp, href: '#' },
 ];

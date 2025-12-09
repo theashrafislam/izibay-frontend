@@ -15,8 +15,9 @@ const Navbar = () => {
 
     return (
         <nav className='bg-[#F0F0F0]'>
+            {/* fixed top-0 left-0 w-full z-50 */}
             {/* desktop version  */}
-            <div className='hidden lg:flex justify-between items-center py-9 max-w-7xl mx-auto'>
+            <div className='hidden lg:flex justify-between items-center py-9 max-w-7xl mx-auto '>
                 {/* logo */}
                 <div>
                     {/* <Image alt='Izibay' src={} width={100} height={100}/> */}

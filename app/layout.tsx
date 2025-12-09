@@ -37,10 +37,12 @@ export default function RootLayout({
           <FaCircle className="px-4 text-white text-5xl" />
         </Marquee>
 
-        <Navbar />
+        <div className="sticky top-0 z-50 bg-[#F0F0F0]">
+          <Navbar />
+        </div>
 
         {/* Main Content Area — auto grows */}
-        <main className="grow max-w-7xl mx-auto w-full">
+        <main className="grow">
           {children}
         </main>
 
