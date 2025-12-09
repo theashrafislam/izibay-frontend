@@ -26,25 +26,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} antialiased`}
+        className={`${montserrat.variable} antialiased min-h-screen flex flex-col`}
       >
         {/* <Marquee> */}
-
+        {/* Top Section */}
         <Marquee className="lg:py-3 bg-black text-white text-lg font-bold" speed={60}>
           <p >10% Flat discount at order over BDT 999!</p>
-          <FaCircle className="px-4 text-white text-5xl"/>
+          <FaCircle className="px-4 text-white text-5xl" />
           <p >20% Flat discount at order over BDT 1999!</p>
-          <FaCircle className="px-4 text-white text-5xl"/>
+          <FaCircle className="px-4 text-white text-5xl" />
         </Marquee>
 
         <Navbar />
 
-        <div className="max-w-7xl mx-auto">
+        {/* Main Content Area — auto grows */}
+        <main className="grow max-w-7xl mx-auto w-full">
           {children}
-        </div>
+        </main>
 
+        {/* Bottom Section */}
         <Footer />
-        
+
       </body>
     </html>
   );
