@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar"
+import Footer from "./Components/Footer"
 import Marquee from "react-fast-marquee";
 import { FaCircle } from "react-icons/fa";
 
@@ -29,15 +30,21 @@ export default function RootLayout({
       >
         {/* <Marquee> */}
 
-        <Marquee className="lg:py-3 bg-black text-white text-lg font-bold" speed={100}>
+        <Marquee className="lg:py-3 bg-black text-white text-lg font-bold" speed={60}>
           <p >10% Flat discount at order over BDT 999!</p>
           <FaCircle className="px-4 text-white text-5xl"/>
           <p >20% Flat discount at order over BDT 1999!</p>
+          <FaCircle className="px-4 text-white text-5xl"/>
         </Marquee>
+
         <Navbar />
+
         <div className="max-w-7xl mx-auto">
           {children}
         </div>
+
+        <Footer />
+        
       </body>
     </html>
   );
