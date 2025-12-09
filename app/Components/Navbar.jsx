@@ -5,12 +5,19 @@ import { FaRegUser } from 'react-icons/fa';
 import { IoCartOutline, IoMenu } from 'react-icons/io5';
 import { RiSearchLine } from 'react-icons/ri';
 import MenuBar from "./MenuBar"
+import CartDrawer from "./CartDrawer"
 
 const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
+        setIsMenuOpen(!isMenuOpen);
+    }
+
+    const handleCartToggle = () => {
+        setIsCartOpen(!isCartOpen);
     }
 
     return (
@@ -60,7 +67,10 @@ const Navbar = () => {
 
                 {/* cart icon  */}
                 <div>
-                    <IoCartOutline className='text-3xl' />
+                    <IoCartOutline className='text-3xl' onClick={handleCartToggle} />
+                    
+                    {/* cart drawer  */}
+                    <CartDrawer isOpen={isCartOpen} toggleCart={handleCartToggle} />
                 </div>
             </div>
 

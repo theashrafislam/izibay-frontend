@@ -41,12 +41,12 @@ const MenuBar = ({ isOpen, toggleMenu }) => {
                     } rounded-t-3xl`}
             >
                 {/* Close Button (Outside scrollable area) */}
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 z-50">
+                <div className={`absolute -top-6 left-1/2 transform -translate-x-1/2 z-50 ${isOpen ? "" : "hidden"}`}>
                     <button
                         className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-gray-800 hover:bg-red-100 transition"
                         onClick={toggleMenu}
                     >
-                        <IoClose className="text-2xl" />
+                        <IoClose className={`text-2xl`} />
                     </button>
                 </div>
 
