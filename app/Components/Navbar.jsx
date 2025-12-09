@@ -1,11 +1,18 @@
-// import Image from 'next/image';
+"use client"
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegUser } from 'react-icons/fa';
 import { IoCartOutline, IoMenu } from 'react-icons/io5';
 import { RiSearchLine } from 'react-icons/ri';
+import MenuBar from "./MenuBar"
 
 const Navbar = () => {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
+
     return (
         <nav className='bg-[#F0F0F0]'>
             {/* desktop version  */}
@@ -30,9 +37,9 @@ const Navbar = () => {
 
                 {/* icons button  */}
                 <div className='flex items-center gap-4'>
-                    <RiSearchLine className='text-xl'/>
-                    <FaRegUser className='text-xl'/>
-                    <IoCartOutline className='text-xl'/>
+                    <RiSearchLine className='text-xl' />
+                    <FaRegUser className='text-xl' />
+                    <IoCartOutline className='text-xl' />
                 </div>
             </div>
 
@@ -40,8 +47,8 @@ const Navbar = () => {
             <div className='lg:hidden flex items-center justify-between px-3 py-4'>
                 {/* menu and search button  */}
                 <div className='flex items-center gap-4'>
-                    <IoMenu className='text-3xl'/>
-                    <RiSearchLine className='text-2xl'/>
+                    <IoMenu className='text-3xl' onClick={toggleMenu} />
+                    <RiSearchLine className='text-2xl' />
                 </div>
 
                 {/* logo  */}
@@ -52,9 +59,15 @@ const Navbar = () => {
 
                 {/* cart icon  */}
                 <div>
-                    <IoCartOutline className='text-3xl'/>
+                    <IoCartOutline className='text-3xl' />
                 </div>
             </div>
+
+            <MenuBar
+                isOpen={isMenuOpen}
+                toggleMenu={toggleMenu}
+            />
+
         </nav>
     );
 };
