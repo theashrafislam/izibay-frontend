@@ -6,11 +6,15 @@ import { IoCartOutline, IoMenu } from 'react-icons/io5';
 import { RiSearchLine } from 'react-icons/ri';
 import MenuBar from "./MenuBar"
 import CartDrawer from "./CartDrawer"
+import SearchDrawer from "./SearchDrawer"
 
 const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const toggleSearch = () => setIsSearchOpen(prev => !prev);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -45,7 +49,7 @@ const Navbar = () => {
 
                 {/* icons button  */}
                 <div className='flex items-center gap-4'>
-                    <RiSearchLine className='text-2xl' />
+                    <RiSearchLine className='text-2xl' onClick={toggleSearch} />
                     <FaRegUser className='text-2xl' />
                     <IoCartOutline className='text-3xl' onClick={handleCartToggle} />
 
@@ -59,7 +63,7 @@ const Navbar = () => {
                 {/* menu and search button  */}
                 <div className='flex items-center gap-4'>
                     <IoMenu className='text-3xl' onClick={toggleMenu} />
-                    <RiSearchLine className='text-2xl' />
+                    <RiSearchLine className='text-2xl' onClick={toggleSearch} />
                 </div>
 
                 {/* logo  */}
@@ -81,6 +85,10 @@ const Navbar = () => {
                 isOpen={isMenuOpen}
                 toggleMenu={toggleMenu}
             />
+
+
+            {/* add the SearchDrawer here (outside header so it overlays entire page) */}
+            <SearchDrawer isOpen={isSearchOpen} toggle={toggleSearch} />
 
         </nav>
     );
