@@ -1,9 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import Button from "./ui/Button"
 import { BiSolidLock } from "react-icons/bi";
 
 const CartDrawer = ({ isOpen, toggleCart }) => {
+
+  const [noteOpen, setNoteOpen] = useState(false);
+
+  const handleOrderNote = () => setNoteOpen(true);
+  const closeNote = () => setNoteOpen(false);
+
+
+
   // Prevent body scroll when drawer is open
   useEffect(() => {
     if (isOpen) {
@@ -16,9 +24,6 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
     };
   }, [isOpen]);
 
-  const handleOrderNote = () => {
-    console.log("Hello I am clicked")
-  }
 
   return (
     <>
@@ -37,7 +42,18 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
             onClick={toggleCart}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-red-100 transition"
           >
-            <IoClose className="text-2xl" />
+            <button
+              disabled={noteOpen}
+              className={`
+    w-8 h-8 flex items-center justify-center rounded-full transition-all duration-150 
+    ${noteOpen
+                  ? "bg-red-500 cursor-not-allowed active:animate-shakeX active:scale-110 active:bg-gray-400"
+                  : "bg-gray-200 hover:bg-gray-300 hover:scale-105"
+                }
+  `}
+            >
+              <IoClose className="text-xl" />
+            </button>
           </button>
         </div>
 
@@ -125,6 +141,34 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
 
         </div>
       </div>
+
+      {/* Order Note Drawer */}
+      <div
+        className={`fixed bottom-0 left-0 w-full sm:w-[80%] lg:w-[45%] bg-white z-50 p-4 rounded-t-xl shadow-xl transition-transform duration-300 ${noteOpen ? "translate-y-0" : "translate-y-full"
+          }`}
+      >
+
+        {/* Note content */}
+        <div>
+          <div className="flex items-center justify-between pb-2">
+            <h5 className="text-xl font-semibold">Order Note</h5>
+            {/* Close button */}
+            <button onClick={closeNote} className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition">
+              <IoClose className="text-xl" />
+            </button>
+          </div>
+          <textarea
+            className="w-full border border-gray-300 rounded-md p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-red-400"
+            rows={4}
+            placeholder="Write your order note here..."
+          ></textarea>
+        </div>
+
+        <Button name="Save Note" color="red" />
+      </div>
+
+      {/* Overlay for Note */}
+      {noteOpen && <div onClick={closeNote} className="fixed inset-0 bg-black opacity-40 z-40"></div>}
 
       {/* Overlay */}
       {isOpen && (
