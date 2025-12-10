@@ -21,10 +21,28 @@ export default function SearchDrawer({ isOpen, toggle }) {
 
   // Dummy Data
   const products = [
-    { id: 1, name: "Women's Full Cup Non-Padded Lace Bra", price: 499, img: "https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg" },
-    { id: 2, name: "Womens Soft Non Foam Lace Bra", price: 499, img: "https://levin.com.bd/cdn/shop/files/blabla.jpg" },
-    { id: 3, name: "Womens Regular Fit Wide Leg Nightwear Pajama", price: 299, img: "https://levin.com.bd/cdn/shop/files/pant.jpg" }
-  ];
+  { id: 1, name: "Men's Casual T-Shirt", price: 399, img: "https://i.pinimg.com/736x/d2/57/65/d25765e9a7d8d3146e00cde65a9e449c.jpg" },
+  { id: 2, name: "Women's Graphic Tee", price: 449, img: "https://images-cdn.ubuy.co.in/681c55deb0cf0b705a047ec3-women-s-graphic-tees-letter-print-summer.jpg" },
+  { id: 3, name: "Men's Formal Shirt", price: 799, img: "https://img.drz.lazcdn.com/static/bd/p/c4b875781df35fc5e570279d55747439.jpg_720x720q80.jpg" },
+  { id: 4, name: "Women's Casual Shirt", price: 699, img: "https://5.imimg.com/data5/SELLER/Default/2022/12/WP/KD/ND/181659218/women-casual-shirt-1000x1000.jpeg" },
+  { id: 5, name: "Men's Denim Jacket", price: 1299, img: "https://5.imimg.com/data5/SELLER/Default/2022/12/WP/KD/ND/181659218/women-casual-shirt-1000x1000.jpeg" },
+  { id: 6, name: "Women's Winter Coat", price: 1899, img: "https://cdn.pixabay.com/photo/2016/11/29/03/53/woman-1867093_1280.jpg" },
+  { id: 7, name: "Men's Hoodie", price: 899, img: "https://cdn.pixabay.com/photo/2015/09/02/13/05/man-918625_1280.jpg" },
+  { id: 8, name: "Women's Pullover Sweater", price: 999, img: "https://cdn.pixabay.com/photo/2016/11/29/06/25/woman-1866896_1280.jpg" },
+  { id: 9, name: "Men's Cargo Pants", price: 749, img: "https://cdn.pixabay.com/photo/2017/06/16/11/40/fashion-2405945_1280.jpg" },
+  { id: 10, name: "Women's Slim Fit Pants", price: 699, img: "https://cdn.pixabay.com/photo/2016/11/19/17/21/girl-1838555_1280.jpg" },
+  { id: 11, name: "Men's Leather Jacket", price: 2199, img: "https://cdn.pixabay.com/photo/2016/03/27/22/22/jacket-1284045_1280.jpg" },
+  { id: 12, name: "Women's Trench Coat", price: 1999, img: "https://cdn.pixabay.com/photo/2017/08/07/22/31/model-2606672_1280.jpg" },
+  { id: 13, name: "Men's Polo Shirt", price: 599, img: "https://cdn.pixabay.com/photo/2016/03/27/22/22/polo-shirt-1284046_1280.jpg" },
+  { id: 14, name: "Women's Blouse", price: 549, img: "https://cdn.pixabay.com/photo/2016/03/27/22/22/blouse-1284047_1280.jpg" },
+  { id: 15, name: "Men's Winter Coat", price: 2499, img: "https://cdn.pixabay.com/photo/2017/06/12/07/32/man-2399726_1280.jpg" },
+  { id: 16, name: "Women's Hoodie", price: 899, img: "https://cdn.pixabay.com/photo/2017/08/02/19/09/fashion-2571195_1280.jpg" },
+  { id: 17, name: "Men's Chinos Pants", price: 699, img: "https://cdn.pixabay.com/photo/2017/03/31/20/15/fashion-2192330_1280.jpg" },
+  { id: 18, name: "Women's Maxi Dress", price: 1299, img: "https://cdn.pixabay.com/photo/2016/11/19/17/21/girl-1838554_1280.jpg" },
+  { id: 19, name: "Men's Sweatshirt", price: 799, img: "https://cdn.pixabay.com/photo/2015/11/07/11/08/sweatshirt-1031619_1280.jpg" },
+  { id: 20, name: "Women's Cardigan", price: 999, img: "https://cdn.pixabay.com/photo/2016/03/27/22/22/cardigan-1284048_1280.jpg" }
+];
+
 
   const suggestions = ["Women bra", "Nightwear", "Cotton panties", "Pajama"];
 
@@ -113,60 +131,62 @@ export default function SearchDrawer({ isOpen, toggle }) {
             </button>
           </div>
 
-          {/* Results Area (Not Full Height) */}
+          {/* Results Area */}
           <div className="mt-3 max-h-[60vh] overflow-y-auto pr-2 space-y-5">
-
-            {/* PRODUCTS */}
-            {activeTab === "products" && (
-              <div>
-                <div className="space-y-4">
-                  {filteredProducts.length > 0 ? (
-                    filteredProducts.map((item) => (
-                      <div key={item.id} className="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-lg">
-                        <img src={item.img} className="w-20 h-20 object-cover rounded" />
-                        <div>
-                          <p className="text-sm font-medium text-gray-800">{item.name}</p>
-                          <p className="text-sm text-gray-500">Tk {item.price}</p>
+            {searchText ? (
+              <>
+                {/* PRODUCTS */}
+                {activeTab === "products" && (
+                  <div className="space-y-4">
+                    {filteredProducts.length ? (
+                      filteredProducts.map(item => (
+                        <div key={item.id} className="flex gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-lg">
+                          <img src={item.img} className="w-20 h-20 object-cover rounded" />
+                          <div>
+                            <p className="text-sm font-medium text-gray-800">{item.name}</p>
+                            <p className="text-sm text-gray-500">Tk {item.price}</p>
+                          </div>
                         </div>
-                      </div>
-                    ))
-                  ) : (
-                    <p className="text-gray-400 text-center">No products found</p>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* SUGGESTIONS */}
-            {activeTab === "suggestions" && (
-              <ul className="space-y-3">
-                {filteredSuggestions.length ? (
-                  filteredSuggestions.map((s, i) => (
-                    <li key={i} className="cursor-pointer text-gray-600 hover:text-black">
-                      {s}
-                    </li>
-                  ))
-                ) : (
-                  <p className="text-gray-400 text-center">No suggestions found</p>
+                      ))
+                    ) : (
+                      <p className="text-gray-400 text-center">No products found</p>
+                    )}
+                  </div>
                 )}
-              </ul>
-            )}
 
-            {/* COLLECTIONS */}
-            {activeTab === "collections" && (
-              <ul className="space-y-3">
-                {filteredCollections.length ? (
-                  filteredCollections.map((c, i) => (
-                    <li key={i} className="cursor-pointer text-gray-600 hover:text-black">
-                      {c}
-                    </li>
-                  ))
-                ) : (
-                  <p className="text-gray-400 text-center">No collections found</p>
+                {/* SUGGESTIONS */}
+                {activeTab === "suggestions" && (
+                  <ul className="space-y-3">
+                    {filteredSuggestions.length ? (
+                      filteredSuggestions.map((s, i) => (
+                        <li key={i} className="cursor-pointer text-gray-600 hover:text-black">
+                          {s}
+                        </li>
+                      ))
+                    ) : (
+                      <p className="text-gray-400 text-center">No suggestions found</p>
+                    )}
+                  </ul>
                 )}
-              </ul>
-            )}
 
+                {/* COLLECTIONS */}
+                {activeTab === "collections" && (
+                  <ul className="space-y-3">
+                    {filteredCollections.length ? (
+                      filteredCollections.map((c, i) => (
+                        <li key={i} className="cursor-pointer text-gray-600 hover:text-black">
+                          {c}
+                        </li>
+                      ))
+                    ) : (
+                      <p className="text-gray-400 text-center">No collections found</p>
+                    )}
+                  </ul>
+                )}
+              </>
+            ) : (
+              <p className="text-gray-400 text-center">Start typing to see results</p>
+            )}
           </div>
         </div>
       </div>
