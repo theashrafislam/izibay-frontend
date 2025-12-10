@@ -98,14 +98,35 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
                       </div>
                       {/* Quantity + Remove */}
                       <div className="flex flex-col gap-2 items-center lg:items-end">
-                        <p className="rounded-xl w-10 p-2 h-10 border border-[#1A1A1AB3] text-center font-semibold">
-                          1
-                        </p>
-                        <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer 
-        before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px] before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
+
+                        {/* Quantity Controller */}
+                        <div className="flex items-center gap-3">
+
+                          {/* + Button (Left) */}
+                          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-lg font-semibold transition">
+                            +
+                          </button>
+
+                          {/* Quantity */}
+                          <p className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-semibold text-gray-700">
+                            1
+                          </p>
+
+                          {/* - Button (Right) */}
+                          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-lg font-semibold transition">
+                            –
+                          </button>
+
+                        </div>
+
+                        {/* Remove */}
+                        <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer
+     before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px]
+     before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
                           Remove
                         </p>
                       </div>
+
                     </div>
 
                   </div>
