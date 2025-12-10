@@ -76,7 +76,7 @@ export default function SearchDrawer({ isOpen, toggle }) {
         transition-all duration-300
         ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
       >
-        <div className="w-[95%] sm:w-[80%] md:w-[60%] lg:w-[45%] bg-white rounded-2xl shadow-xl p-4">
+        <div className="w-[95%] sm:w-[80%] md:w-[80%] lg:w-[60%] bg-white rounded-2xl shadow-xl p-4">
 
           {/* Header */}
           <div className="flex items-center justify-between mb-2">
