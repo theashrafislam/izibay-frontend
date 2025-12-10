@@ -63,7 +63,7 @@ const MenuBar = ({ isOpen, toggleMenu }) => {
                                     onClick={toggleMenu}
                                 >
                                     <span>{item.name}</span>
-                                    <span className="text-gray-500"><GoChevronDown /></span>
+                                    {item?.name == "Home" ? "" : <span className="text-gray-500"><GoChevronDown /></span>}
                                 </Link>
                             </li>
                         ))}
