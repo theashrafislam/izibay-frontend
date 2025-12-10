@@ -108,7 +108,7 @@ export default function SearchDrawer({ isOpen, toggle }) {
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-5 mt-3 text-gray-700 font-medium">
+          <div className="flex gap-2 mt-3 text-gray-700 font-medium">
             <button
               onClick={() => setActiveTab("products")}
               className={`${activeTab === "products" ? "text-black underline" : "text-gray-400"}`}
