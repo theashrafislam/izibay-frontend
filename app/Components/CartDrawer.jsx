@@ -43,13 +43,12 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
 
         {/* Cart Content */}
         <div className="h-full overflow-y-auto flex flex-col scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-          <div className="p-8">
+          <div className="p-4">
             <h2 className="text-2xl font-bold mb-4">Cart</h2>
-            <p className="text-gray-600">Cart items will appear here...</p>
           </div>
 
           {/* Example Items */}
-          <div className="mt-4 space-y-4 grow px-8">
+          <div className="mt-4 space-y-4 grow px-4">
             <div className="flex justify-between items-center p-4 bg-gray-100 rounded">
               <span>Item 1</span>
               <span>$25</span>
@@ -61,10 +60,10 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
           </div>
 
           {/* bottom content  */}
-          <div className="space-y-2 border-t px-8 py-8 border-gray-300">
+          <div className="space-y-2 border-t p-4 border-gray-300 fixed bottom-0 right-0 left-0">
             <div className="flex items-center justify-between text-[#1A1A1A]">
-              <h4 className="text-2xl font-semibold">Total</h4>
-              <h4 className="text-2xl font-semibold">Tk 450.00 BDT</h4>
+              <h4 className="text-lg lg:text-2xl font-semibold">Total</h4>
+              <h4 className="text-lg lg:text-2xl font-semibold">Tk 450.00 BDT</h4>
             </div>
             <p className="text-[#1A1A1AB3] text-sm">Taxes and shipping calculated at checkout</p>
             <p className="text-[#1A1A1AB3] text-sm cursor-pointer underline" onClick={handleOrderNote}>Add order note</p>

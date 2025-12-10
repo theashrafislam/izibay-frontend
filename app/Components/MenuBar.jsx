@@ -56,13 +56,13 @@ const MenuBar = ({ isOpen, toggleMenu }) => {
                     {/* Menu Items */}
                     <ul className="flex flex-col gap-2">
                         {menuItems.map((item) => (
-                            <li key={item.name} className="border-b border-gray-100 last:border-b-0">
+                            <li key={item?.name} className="border-b border-gray-100 last:border-b-0">
                                 <Link
-                                    href={item.href}
+                                    href={item?.href}
                                     className="flex justify-between items-center py-3 text-lg font-medium text-gray-800 hover:text-red-500 transition duration-150"
                                     onClick={toggleMenu}
                                 >
-                                    <span>{item.name}</span>
+                                    <span>{item?.name}</span>
                                     {item?.name == "Home" ? "" : <span className="text-gray-500"><GoChevronDown /></span>}
                                 </Link>
                             </li>
@@ -77,7 +77,7 @@ const MenuBar = ({ isOpen, toggleMenu }) => {
                         <p className="text-xl font-bold mb-4 text-gray-800">Account</p>
                         <div className="flex gap-4">
                             {socialItems.map((item, index) => (
-                                <Link key={index} href={item.href} target="_blank" rel="noopener noreferrer">
+                                <Link key={index} href={item?.href} target="_blank" rel="noopener noreferrer">
                                     <item.Icon className="text-2xl text-gray-600 hover:text-red-500 transition duration-150" />
                                 </Link>
                             ))}
