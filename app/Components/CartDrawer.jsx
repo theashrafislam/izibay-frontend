@@ -50,138 +50,55 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
           {/* Example Items */}
           <div className="mt-2 py-4 space-y-4 px-4 overflow-y-auto flex-1">
 
-            {/* item 1 */}
-            <div className="flex flex-row flex-wrap gap-3 w-full items-start">
+            {[1, 2, 3, 4, 5].map((item, index) => (
+              <div className="flex flex-row flex-wrap gap-3 w-full items-start">
 
-              {/* Image */}
-              <div className="flex-shrink-0 w-24 lg:w-[25%]">
-                <img
-                  alt="product"
-                  src="https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg?v=1759825167&width=160"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Right Section: Text + Quantity */}
-              <div className="flex flex-1 flex-row flex-wrap lg:flex-row lg:justify-between gap-4 w-full">
-
-                {/* Product Info */}
-                <div className="flex-1 flex flex-col gap-2 min-w-[150px]">
-                  <h4 className="text-[#1A1A1A] font-semibold">
-                    3 Pcs Assorted Toddler Baby Boys Cotton Trouser
-                  </h4>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[#1A1A1AB3] text-sm">Tk 450.00</p>
-                      <p className="text-[#1A1A1AB3] text-sm text-nowrap">Pack of 3 / Newborn</p>
-                    </div>
-                    {/* Quantity + Remove */}
-                    <div className="flex flex-col gap-2 items-start lg:items-end">
-                      <p className="rounded-xl w-10 p-2 h-10 border border-[#1A1A1AB3] text-center font-semibold">
-                        1
-                      </p>
-                      <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer 
-        before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px] before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
-                        Remove
-                      </p>
-                    </div>
-                  </div>
-
+                {/* Image */}
+                <div className="flex-shrink-0 w-24 lg:w-[25%]">
+                  <img
+                    alt="product"
+                    src="https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg?v=1759825167&width=160"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
 
+                {/* Right Section: Text + Quantity */}
+                <div className="flex flex-1 flex-row flex-wrap lg:flex-row lg:justify-between gap-4 w-full">
 
-              </div>
-            </div>
-
-
-
-            {/* item 2  */}
-
-            <div className="flex flex-row flex-wrap gap-3 w-full items-start">
-
-              {/* Image */}
-              <div className="flex-shrink-0 w-24 lg:w-[25%]">
-                <img
-                  alt="product"
-                  src="https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg?v=1759825167&width=160"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Right Section: Text + Quantity */}
-              <div className="flex flex-1 flex-row flex-wrap lg:flex-row lg:justify-between gap-4 w-full">
-
-                {/* Product Info */}
-                <div className="flex-1 flex flex-col gap-2 min-w-[150px]">
-                  <h4 className="text-[#1A1A1A] font-semibold">
-                    3 Pcs Assorted Toddler Baby Boys Cotton Trouser
-                  </h4>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[#1A1A1AB3] text-sm">Tk 450.00</p>
-                      <p className="text-[#1A1A1AB3] text-sm text-nowrap">Pack of 3 / Newborn</p>
-                    </div>
-                    {/* Quantity + Remove */}
-                    <div className="flex flex-col gap-2 items-start lg:items-end">
-                      <p className="rounded-xl w-10 p-2 h-10 border border-[#1A1A1AB3] text-center font-semibold">
-                        1
-                      </p>
-                      <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer 
+                  {/* Product Info */}
+                  <div className="flex-1 flex flex-col gap-2 min-w-[150px]">
+                    <h4 className="text-[#1A1A1A] font-semibold">
+                      3 Pcs Assorted Toddler Baby Boys Cotton Trouser
+                    </h4>
+                    <div className="flex items-end justify-between">
+                      <div>
+                        {/* Price & Discount */}
+                        <div className="flex items-center gap-2">
+                          <p className="text-[#1A1A1A] font-semibold text-sm">Tk 450.00</p>
+                          <p className="text-[#EF4444] font-semibold text-sm line-through">Tk 500.00</p>
+                        </div>
+                        <p className="text-[#1A1A1AB3] text-sm text-nowrap">Pack of 3 / Newborn</p>
+                        <p className="text-[#1A1A1AB3] text-sm">Machine washable / Baby safe dyes</p>
+                      </div>
+                      {/* Quantity + Remove */}
+                      <div className="flex flex-col gap-2 items-center lg:items-end">
+                        <p className="rounded-xl w-10 p-2 h-10 border border-[#1A1A1AB3] text-center font-semibold">
+                          1
+                        </p>
+                        <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer 
         before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px] before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
-                        Remove
-                      </p>
+                          Remove
+                        </p>
+                      </div>
                     </div>
+
                   </div>
 
-                </div>
-
-
-              </div>
-            </div>
-
-            {/* item 3  */}
-
-            <div className="flex flex-row flex-wrap gap-3 w-full items-start">
-
-              {/* Image */}
-              <div className="flex-shrink-0 w-24 lg:w-[25%]">
-                <img
-                  alt="product"
-                  src="https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg?v=1759825167&width=160"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Right Section: Text + Quantity */}
-              <div className="flex flex-1 flex-row flex-wrap lg:flex-row lg:justify-between gap-4 w-full">
-
-                {/* Product Info */}
-                <div className="flex-1 flex flex-col gap-2 min-w-[150px]">
-                  <h4 className="text-[#1A1A1A] font-semibold">
-                    3 Pcs Assorted Toddler Baby Boys Cotton Trouser
-                  </h4>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[#1A1A1AB3] text-sm">Tk 450.00</p>
-                      <p className="text-[#1A1A1AB3] text-sm text-nowrap">Pack of 3 / Newborn</p>
-                    </div>
-                    {/* Quantity + Remove */}
-                    <div className="flex flex-col gap-2 items-start lg:items-end">
-                      <p className="rounded-xl w-10 p-2 h-10 border border-[#1A1A1AB3] text-center font-semibold">
-                        1
-                      </p>
-                      <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer 
-        before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px] before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
-                        Remove
-                      </p>
-                    </div>
-                  </div>
 
                 </div>
-
-
               </div>
-            </div>
+            ))}
+
 
           </div>
 
