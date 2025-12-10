@@ -28,7 +28,7 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
     w-full sm:w-[80%] lg:w-[45%]   /* Responsive width */
     bg-white 
     transition-transform duration-300 z-50
-    ${isOpen ? "translate-x-0" : "translate-x-full"} p-1`}
+    ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
 
         {/* Close Button */}
@@ -42,14 +42,14 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
         </div>
 
         {/* Cart Content */}
-        <div className="h-full overflow-y-auto flex flex-col p-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-          <div>
+        <div className="h-full overflow-y-auto flex flex-col scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+          <div className="p-8">
             <h2 className="text-2xl font-bold mb-4">Cart</h2>
             <p className="text-gray-600">Cart items will appear here...</p>
           </div>
 
           {/* Example Items */}
-          <div className="mt-4 space-y-4 grow">
+          <div className="mt-4 space-y-4 grow px-8">
             <div className="flex justify-between items-center p-4 bg-gray-100 rounded">
               <span>Item 1</span>
               <span>$25</span>
@@ -61,13 +61,13 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
           </div>
 
           {/* bottom content  */}
-          <div className="space-y-2">
+          <div className="space-y-2 border-t px-8 py-8 border-gray-300">
             <div className="flex items-center justify-between text-[#1A1A1A]">
               <h4 className="text-2xl font-semibold">Total</h4>
               <h4 className="text-2xl font-semibold">Tk 450.00 BDT</h4>
             </div>
-            <p className="text-[#1A1A1AB3]">Taxes and shipping calculated at checkout</p>
-            <p className="text-[#1A1A1AB3] cursor-pointer underline" onClick={handleOrderNote}>Add order note</p>
+            <p className="text-[#1A1A1AB3] text-sm">Taxes and shipping calculated at checkout</p>
+            <p className="text-[#1A1A1AB3] text-sm cursor-pointer underline" onClick={handleOrderNote}>Add order note</p>
 
             {/* button  */}
             <div className="flex items-center gap-3 pt-2">

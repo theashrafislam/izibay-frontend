@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { GoChevronDown } from "react-icons/go";
 
 const menuItems = [
     { name: 'Home', href: '/' },
@@ -62,7 +63,7 @@ const MenuBar = ({ isOpen, toggleMenu }) => {
                                     onClick={toggleMenu}
                                 >
                                     <span>{item.name}</span>
-                                    <span className="text-gray-400">&gt;</span>
+                                    <span className="text-gray-500"><GoChevronDown /></span>
                                 </Link>
                             </li>
                         ))}
