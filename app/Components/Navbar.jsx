@@ -45,10 +45,13 @@ const Navbar = () => {
 
                 {/* icons button  */}
                 <div className='flex items-center gap-4'>
-                    <RiSearchLine className='text-xl' />
-                    <FaRegUser className='text-xl' />
-                    <IoCartOutline className='text-xl' />
+                    <RiSearchLine className='text-2xl' />
+                    <FaRegUser className='text-2xl' />
+                    <IoCartOutline className='text-3xl' onClick={handleCartToggle} />
+
                 </div>
+                {/* cart drawer  */}
+                <CartDrawer isOpen={isCartOpen} toggleCart={handleCartToggle} />
             </div>
 
             {/* mobile and table version  */}
@@ -68,7 +71,7 @@ const Navbar = () => {
                 {/* cart icon  */}
                 <div>
                     <IoCartOutline className='text-3xl' onClick={handleCartToggle} />
-                    
+
                     {/* cart drawer  */}
                     <CartDrawer isOpen={isCartOpen} toggleCart={handleCartToggle} />
                 </div>

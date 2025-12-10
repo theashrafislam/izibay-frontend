@@ -16,7 +16,7 @@ export default function NotFound() {
                 <Link
                     href="/"
                 >
-                    <Button name={'Continue shopping'} />
+                    <Button name={'Continue shopping'} color={'red'}/>
                 </Link>
 
             </div>
