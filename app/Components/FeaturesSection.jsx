@@ -38,7 +38,7 @@ const FeaturesSection = () => {
           <div key={index} className="flex flex-col items-center gap-2">
             {feature.icon}
             <h4 className="font-semibold text-lg">{feature.title}</h4>
-            <p className="text-[12px] md:text-base">{feature.desc}</p>
+            <p>{feature.desc}</p>
           </div>
         ))}
       </div>
@@ -62,7 +62,7 @@ const FeaturesSection = () => {
               <div className="flex flex-col items-center gap-2 text-center">
                 {feature.icon}
                 <h4 className="font-semibold text-lg">{feature.title}</h4>
-                <p>{feature.desc}</p>
+                <p className="text-sm md:text-base">{feature.desc}</p>
               </div>
             </SwiperSlide>
           ))}
