@@ -20,7 +20,7 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <div className="bg-[#F0F0F0] pt-16">
+    <div className="bg-[#F0F0F0]">
       <div className="max-w-7xl mx-auto lg:rounded-2xl p-8 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 bg-[#ffffff]">
         
         {/* Left Side */}
