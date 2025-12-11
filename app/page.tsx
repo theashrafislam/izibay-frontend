@@ -3,7 +3,7 @@ import FeaturesSection from "./Components/FeaturesSection"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-red-500">
+    <div className="min-h-screen">
       
       {/* Hero Section */}
       <HeroSlider />
