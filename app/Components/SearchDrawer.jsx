@@ -81,7 +81,7 @@ export default function SearchDrawer({ isOpen, toggle }) {
           {/* Header */}
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-lg font-semibold text-gray-700">Search for...</h2>
-            <button onClick={toggle} className="p-2 rounded-full hover:bg-gray-200 transition">
+            <button onClick={toggle} className="p-2 rounded-full transition">
               <IoClose className="text-xl" />
             </button>
           </div>

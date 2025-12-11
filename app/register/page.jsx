@@ -1,13 +1,12 @@
 import React from "react";
-import { FcGoogle } from "react-icons/fc";
 import Button from "../Components/ui/Button";
+import { FcGoogle } from "react-icons/fc";
 import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <div className="bg-[#F0F0F0] py-16 flex flex-col items-center justify-center">
-      
       <div
         className="
         w-full max-w-[480px]
@@ -19,11 +18,33 @@ const LoginPage = () => {
       >
         {/* Title */}
         <h5 className="text-3xl sm:text-4xl lg:text-5xl font-medium">
-          Login
+          Sign Up
         </h5>
 
-        {/* Input fields */}
+        {/* Input Fields */}
         <div className="flex flex-col gap-5 pt-8">
+
+          {/* First Name */}
+          <div className="text-left">
+            <label className="text-sm font-medium">First Name</label>
+            <input
+              type="text"
+              placeholder="Enter your first name"
+              className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
+            />
+          </div>
+
+          {/* Last Name */}
+          <div className="text-left">
+            <label className="text-sm font-medium">Last Name</label>
+            <input
+              type="text"
+              placeholder="Enter your last name"
+              className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
+            />
+          </div>
+
+          {/* Email */}
           <div className="text-left">
             <label className="text-sm font-medium">Email</label>
             <input
@@ -33,25 +54,22 @@ const LoginPage = () => {
             />
           </div>
 
+          {/* Password */}
           <div className="text-left">
             <label className="text-sm font-medium">Password</label>
             <input
               type="password"
-              placeholder="Enter your password"
+              placeholder="Create a password"
               className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
             />
           </div>
+
         </div>
 
-        {/* Forgot password */}
-        <p className="text-sm underline text-left cursor-pointer mt-1">
-          Forgot your password?
-        </p>
+        {/* Sign Up Button */}
+        <Button name={"Sign Up"} color={"black"} />
 
-        {/* Login button */}
-        <Button name={"Login"} color={"black"} />
-
-        {/* Google Login */}
+        {/* Google Register */}
         <button
           className="
           w-full flex items-center justify-center gap-3 
@@ -64,15 +82,15 @@ const LoginPage = () => {
           <FcGoogle size={22} /> Continue with Google
         </button>
 
-        {/* Sign Up */}
+        {/* Login Redirect */}
         <div className="flex items-center justify-center pt-1">
           <Link
-          href={'/register'}
+          href={'/login'}
             className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer w-fit
             before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px]
             before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full"
           >
-            Sign Up
+            Already have an account? Login
           </Link>
         </div>
       </div>
@@ -82,4 +100,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

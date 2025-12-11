@@ -38,7 +38,7 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
 
         {/* Close Button */}
         <div className="absolute top-4 right-4">
-          <button
+          <div
             onClick={toggleCart}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-red-100 transition"
           >
@@ -54,7 +54,7 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
             >
               <IoClose className="text-xl" />
             </button>
-          </button>
+          </div>
         </div>
 
         {/* Cart Content */}
@@ -67,7 +67,7 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
           <div className="mt-2 py-4 space-y-4 px-4 overflow-y-auto flex-1">
 
             {[1, 2, 3, 4, 5].map((item, index) => (
-              <div className="flex flex-row flex-wrap gap-3 w-full items-start">
+              <div key={index} className="flex flex-row flex-wrap gap-3 w-full items-start">
 
                 {/* Image */}
                 <div className="flex-shrink-0 w-24 lg:w-[25%]">
