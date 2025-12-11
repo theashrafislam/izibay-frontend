@@ -40,7 +40,7 @@ export default function ReviewSection() {
         Quality that Comes with Affordability!
       </h2>
 
-      <div className="w-full max-w-md bg-[#1A1A1A0D] rounded-2xl p-6">
+      <div className="w-full max-w-md bg-[#1A1A1A0D] md:bg-white rounded-2xl p-6">
         <p className="text-gray-700 text-base md:text-lg italic leading-relaxed">
           "{current.message}"
         </p>
