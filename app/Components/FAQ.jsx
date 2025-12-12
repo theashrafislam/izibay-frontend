@@ -21,10 +21,10 @@ const faqData = [
 export default function FAQ() {
   return (
     <div className="bg-[#F0F0F0]">
-      <div className="max-w-7xl mx-auto lg:rounded-2xl p-8 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 bg-[#ffffff]">
+      <div className="max-w-7xl mx-auto lg:rounded-2xl px-4 md:px-10 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 bg-[#ffffff]">
         
         {/* Left Side */}
-        <div className="flex-1">
+        <div className="flex-1 text-center lg:text-start">
           <h3 className="text-3xl font-bold mb-4">FAQ</h3>
           <p className="mb-2 text-gray-700">
             Got questions? Our FAQ has answers—quick, clear, and always ready to help you out!

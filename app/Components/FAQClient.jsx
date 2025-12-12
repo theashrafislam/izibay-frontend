@@ -11,7 +11,7 @@ const FAQClient = ({ faqData }) => {
   };
 
   return (
-    <div className="flex-1 bg-[#1A1A1A0D] p-6 md:p-8 rounded-xl">
+    <div className="flex-1 bg-[#1A1A1A0D] p-4 rounded-xl">
       {faqData.map((item, index) => (
         <div key={index} className="mb-4 border-b border-gray-200">
           <button
