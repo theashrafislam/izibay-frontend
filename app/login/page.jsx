@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const LoginPage = () => {
   return (
-    <div className="bg-[#F0F0F0] py-16 flex flex-col items-center justify-center">
+    <div className="bg-[#F0F0F0] pt-16 flex flex-col items-center justify-center">
       
       <div
         className="

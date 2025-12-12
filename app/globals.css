@@ -12,3 +12,12 @@ html, body {
     transform: translateX(calc(-1 * var(--marquee-width)));
   }
 }
+
+/* Hide scrollbar globally */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
