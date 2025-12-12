@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
     {
@@ -42,23 +43,24 @@ export default function CategorySection() {
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
                     {categories.map((item, index) => (
-                        <div
-                            key={index}
-                            className="group cursor-pointer bg-white rounded-xl shadow-sm hover:shadow-md transition p-3 border"
-                        >
-                            <div className="w-full h-32 relative rounded-lg overflow-hidden">
-                                <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition"
-                                />
-                            </div>
+                        <Link key={index} href={`/category/${item.name.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-")}`}>
+                            <div
+                                className="group cursor-pointer bg-white rounded-xl shadow-sm hover:shadow-md transition p-3 border"
+                            >
+                                <div className="w-full h-32 relative rounded-lg overflow-hidden">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.name}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition"
+                                    />
+                                </div>
 
-                            <h3 className="text-center mt-3 text-sm font-medium group-hover:text-blue-600">
-                                {item.name}
-                            </h3>
-                        </div>
+                                <h3 className="text-center mt-3 text-sm font-medium group-hover:text-blue-600">
+                                    {item.name}
+                                </h3>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             </div>
