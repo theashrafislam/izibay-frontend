@@ -53,7 +53,7 @@ const Footer = () => {
                         <div>
                             <h5 className="font-bold mb-2">Support</h5>
                             <ul className="space-y-2">
-                                <li>About Levin</li>
+                                <li>About Izibay</li>
                                 <li>Contact Us</li>
                                 <li>Career</li>
                                 <li>Report an Issue</li>

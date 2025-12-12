@@ -3,6 +3,7 @@ import FeaturesSection from "./Components/FeaturesSection"
 import FAQ from "./Components/FAQ"
 import Newsletter from "./Components/Newsletter"
 import ReviewSection from "./Components/ReviewSection"
+import CategorySection from "./Components/CategorySection"
 
 export default function Home() {
   return (
@@ -10,6 +11,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSlider />
+
+      {/* Category Section */}
+      <CategorySection />
 
       {/* review section  */}
       <ReviewSection />
