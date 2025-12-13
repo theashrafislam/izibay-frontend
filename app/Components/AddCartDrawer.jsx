@@ -62,33 +62,43 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
 
                     <div className='flex flex-col gap-2'>
                         {/* Color */}
-                        <div className="flex flex-col gap-2">
-                            <p className="text-sm font-medium">
-                                Color: <span className="font-semibold">Black</span>
-                            </p>
+<div className="flex flex-col gap-2">
+  {(() => {
+    const colors = [
+      { name: "White", value: "bg-white" },
+      { name: "Gray", value: "bg-gray-400" },
+      { name: "Black", value: "bg-black" },
+      { name: "Golden Olive", value: "bg-[#8B7D2B]" },
+    ];
 
-                            <div className="flex gap-3">
-                                {/* White */}
-                                <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer hover:border-black transition">
-                                    <div className="w-5 h-5 rounded-full bg-white"></div>
-                                </div>
+    const [activeColor, setActiveColor] = useState(colors[2]);
 
-                                {/* Gray */}
-                                <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer hover:border-black transition">
-                                    <div className="w-5 h-5 rounded-full bg-gray-400"></div>
-                                </div>
+    return (
+      <>
+        <p className="text-sm font-medium">
+          Color: <span className="font-semibold">{activeColor.name}</span>
+        </p>
 
-                                {/* Black (selected) */}
-                                <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center cursor-pointer">
-                                    <div className="w-5 h-5 rounded-full bg-black"></div>
-                                </div>
-
-                                {/* Golden Olive */}
-                                <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer hover:border-black transition">
-                                    <div className="w-5 h-5 rounded-full bg-[#8B7D2B]"></div>
-                                </div>
-                            </div>
-                        </div>
+        <div className="flex gap-3">
+          {colors.map((color) => (
+            <div
+              key={color.name}
+              onClick={() => setActiveColor(color)}
+              className={`w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition
+                ${
+                  activeColor.name === color.name
+                    ? "border-2 border-black"
+                    : "border border-gray-300 hover:border-black"
+                }`}
+            >
+              <div className={`w-5 h-5 rounded-full ${color.value}`}></div>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  })()}
+</div>
 
                         {/* Size */}
                         <div className="flex flex-col gap-2">
