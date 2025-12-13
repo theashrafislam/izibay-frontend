@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
             </div>
 
             {/* Product Grid */}
-            <div className="max-w-7xl mx-auto px-4 lg:px-0 grid gap-8 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="max-w-7xl mx-auto px-4 lg:px-0 grid gap-2 md:gap-6 lg:gap-8 grid-cols-2 sm:grid-cols-2 items-center md:grid-cols-3 lg:grid-cols-4">
                 {products.map((product, index) => (
                     <div key={index}>
                         <FeaturedProductsCard product={product}/>
