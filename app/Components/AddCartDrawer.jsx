@@ -8,6 +8,9 @@ import Button from './ui/Button';
 const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
 
     const [quantity, setQuantity] = useState(1);
+    const product = {
+        inStock: true
+    }
 
     // Prevent body scroll when drawer is open
     useEffect(() => {
@@ -81,6 +84,31 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
                     <hr className="my-3 border-gray-200 grow" />
 
                     <div className='flex flex-col gap-2'>
+
+                        {/* Stock Status */}
+                        <div className="flex items-center gap-2">
+                            <span
+                                className={`w-2.5 h-2.5 rounded-full ${product.inStock ? "bg-green-500" : "bg-red-500"
+                                    }`}
+                            ></span>
+
+                            <p
+                                className={`text-sm font-medium ${product.inStock ? "text-green-600" : "text-red-600"
+                                    }`}
+                            >
+                                {product.inStock ? "In Stock" : "Out of Stock"}
+                            </p>
+                        </div>
+
+                        {/* Short Description */}
+                        <div className="flex flex-col gap-2">
+                            <p className="text-sm text-gray-700">
+                                Classic white T-Shirt made from 100% cotton, comfortable and stylish.
+                                Perfect for casual wear, available in multiple colors and sizes.
+                            </p>
+                        </div>
+
+
                         {/* Color */}
                         <div className="flex flex-col gap-2">
                             {(() => {
@@ -99,7 +127,7 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
                                             Color: <span className="font-semibold">{activeColor.name}</span>
                                         </p>
 
-                                        <div className="flex gap-3">
+                                        <div className="flex gap-3 items-center justify-center">
                                             {colors.map((color) => (
                                                 <div
                                                     key={color.name}
