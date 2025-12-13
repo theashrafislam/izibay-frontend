@@ -25,8 +25,8 @@ const products = [
     {
         id: 3,
         name: "Casual Hoodie",
-        price: "Tk 299.00",
-        discountPrice: "Tk 150.00",
+        price: "Tk 300.00",
+        discountPrice: "Tk 200.00",
         image:
             "https://m.media-amazon.com/images/I/71m9WX--hpL._AC_SL400_.jpg",
         colors: ["#9CA3AF", "#111827", "#F59E0B"],
@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
             </div>
 
             {/* Product Grid */}
-            <div className="max-w-7xl mx-auto px-4 lg:px-0 grid gap-2 md:gap-6 lg:gap-8 grid-cols-2 sm:grid-cols-2 items-center md:grid-cols-3 lg:grid-cols-4">
+            <div className="max-w-7xl mx-auto px-4 lg:px-0 grid gap-3 md:gap-6 lg:gap-8 grid-cols-2 sm:grid-cols-2 items-center md:grid-cols-3 lg:grid-cols-4">
                 {products.map((product, index) => (
                     <div key={index}>
                         <FeaturedProductsCard product={product}/>
