@@ -1,14 +1,23 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import AddCartDrawer from "./AddCartDrawer"
-import Button from "./ui/Button"
 
 const FeaturedProductCard = ({ product }) => {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isShowButton, setIsShowButton] = useState(false);
+
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    // Check screen size for desktop
+    useEffect(() => {
+        const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+        handleResize(); // initial check
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
@@ -22,9 +31,9 @@ const FeaturedProductCard = ({ product }) => {
 
                 className="flex flex-col rounded-xl justify-between w-full md:w-56 lg:w-56 xl:w-64 2xl:w-72 h-[350px] sm:h-[380px] md:h-[400px] bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
                 {/* Product Image */}
-                <div className="h-3/5 w-full relative"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
+                <div className=" h-3/5 w-full relative"
+                    onMouseEnter={() => isDesktop && setIsHovered(true)}
+                    onMouseLeave={() => isDesktop && setIsHovered(false)}
                 >
                     {/* Save Badge */}
                     {product.discountPrice && (
@@ -42,7 +51,7 @@ const FeaturedProductCard = ({ product }) => {
                     />
 
                     {/* button for desktop  */}
-                    {isShowButton && <button className='absolute text-nowrap rounded-full bg-red-500 px-4 text-[10px] font-bold text-white right-2 bottom-2 py-2'>Add to Cart</button>}
+                    {isShowButton && <button className='absolute hidden lg:block text-nowrap rounded-full bg-red-500 px-4 text-[10px] font-bold text-white right-2 bottom-2 py-2'>Add to Cart</button>}
 
                     {/* Add to Cart Icon Button (Mobile & Tablet only) */}
                     <button className="absolute -bottom-4 right-3 bg-red-600 text-white p-2 rounded-full shadow-md hover:bg-red-700 transition-colors duration-300 block lg:hidden">
