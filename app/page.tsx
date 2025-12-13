@@ -5,6 +5,7 @@ import Newsletter from "./Components/Newsletter"
 import ReviewSection from "./Components/ReviewSection"
 import CategorySection from "./Components/CategorySection"
 import FeaturedProducts from "./Components/FeaturedProducts"
+import NewArrivals from "./Components/NewArrivals"
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
 
       {/* Category Section */}
       <CategorySection />
+
+      {/* New Arrivals */}
+      <NewArrivals />
 
       {/* review section  */}
       <ReviewSection />
