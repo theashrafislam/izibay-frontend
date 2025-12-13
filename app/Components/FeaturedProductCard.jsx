@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import AddCartDrawer from "./AddCartDrawer"
+import Button from "./ui/Button"
 
 const FeaturedProductCard = ({ product }) => {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+    const [isShowButton, setIsShowButton] = useState(false);
 
     const toggleCart = () => {
         setIsCartOpen(!isCartOpen);
@@ -13,9 +16,16 @@ const FeaturedProductCard = ({ product }) => {
 
     return (
         <div className='flex items-center justify-center'>
-            <div className="flex flex-col rounded-xl justify-between w-full md:w-56 lg:w-56 xl:w-64 2xl:w-72 h-[350px] sm:h-[380px] md:h-[400px] bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
+            <div
+                onMouseEnter={() => setIsShowButton(true)}
+                onMouseLeave={() => setIsShowButton(false)}
+
+                className="flex flex-col rounded-xl justify-between w-full md:w-56 lg:w-56 xl:w-64 2xl:w-72 h-[350px] sm:h-[380px] md:h-[400px] bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
                 {/* Product Image */}
-                <div className="h-3/5 w-full relative">
+                <div className="h-3/5 w-full relative"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
                     {/* Save Badge */}
                     {product.discountPrice && (
                         <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] text-xs font-bold px-2 py-1 rounded-full">
@@ -23,11 +33,16 @@ const FeaturedProductCard = ({ product }) => {
                         </div>
                     )}
 
+
+                    {/* Image */}
                     <img
-                        src={product?.image}
-                        alt={product?.name}
-                        className="w-full h-full rounded-xl rounded-b-none object-cover"
+                        src={isHovered && product.hoverImage ? product.hoverImage : product.image}
+                        alt={product.name}
+                        className="w-full h-full rounded-xl rounded-b-none object-cover transition-all duration-3000"
                     />
+
+                    {/* button for desktop  */}
+                    {isShowButton && <button className='absolute text-nowrap rounded-full bg-red-500 px-4 text-[10px] font-bold text-white right-2 bottom-2 py-2'>Add to Cart</button>}
 
                     {/* Add to Cart Icon Button (Mobile & Tablet only) */}
                     <button className="absolute -bottom-4 right-3 bg-red-600 text-white p-2 rounded-full shadow-md hover:bg-red-700 transition-colors duration-300 block lg:hidden">
@@ -59,7 +74,7 @@ const FeaturedProductCard = ({ product }) => {
                         {product?.colors?.map((color, index) => (
                             <span
                                 key={index}
-                                className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-gray-300"
+                                className="w-5 h-5 rounded-full border border-gray-300"
                                 style={{ backgroundColor: color }}
                             ></span>
                         ))}

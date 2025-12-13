@@ -4,7 +4,7 @@ import { CiMail } from "react-icons/ci";
 
 const Newsletter = () => {
   return (
-    <div className="w-full bg-[#F0F0F0] py-14 px-4">
+    <div className="w-full bg-[#F0F0F0] py-10 px-4">
       <div className="max-w-3xl mx-auto text-center">
         
         {/* Title */}

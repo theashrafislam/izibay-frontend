@@ -31,7 +31,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <div className="bg-[#F0F0F0] py-16">
+    <div className="bg-[#F0F0F0] py-10">
       {/* Desktop view */}
       <div className="hidden lg:flex max-w-7xl mx-auto px-0 items-center justify-between text-center gap-8">
         {features.map((feature, index) => (
