@@ -4,6 +4,7 @@ import FAQ from "./Components/FAQ"
 import Newsletter from "./Components/Newsletter"
 import ReviewSection from "./Components/ReviewSection"
 import CategorySection from "./Components/CategorySection"
+import FeaturedProducts from "./Components/FeaturedProducts"
 
 export default function Home() {
   return (
@@ -11,6 +12,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSlider />
+
+      {/* Featured Products */}
+      <FeaturedProducts />
 
       {/* Category Section */}
       <CategorySection />

@@ -37,11 +37,11 @@ const categories = [
 
 export default function CategorySection() {
     return (
-        <section className="py-10">
-            <div className="max-w-7xl mx-auto px-4">
+        <section className="py-10 bg-[#F0F0F0]">
+            <div className="max-w-7xl mx-auto px-4 lg:px-0">
                 <h2 className="text-3xl font-bold mb-6">Shop by Category</h2>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1 md:gap-5">
                     {categories.map((item, index) => (
                         <Link key={index} href={`/category/${item.name.toLowerCase().replace(/'/g, "").replace(/\s+/g, "-")}`}>
                             <div
@@ -56,7 +56,7 @@ export default function CategorySection() {
                                     />
                                 </div>
 
-                                <h3 className="text-center mt-3 text-sm font-medium group-hover:text-blue-600">
+                                <h3 className="text-center text-nowrap mt-3 text-sm font-medium group-hover:text-blue-600">
                                     {item.name}
                                 </h3>
                             </div>
