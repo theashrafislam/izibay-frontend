@@ -37,7 +37,7 @@ const categories = [
 
 export default function CategorySection() {
     return (
-        <section className="py-10 bg-[#F0F0F0]">
+        <section className="py-10 bg-white">
             <div className="max-w-7xl mx-auto px-4 lg:px-0">
                 <h2 className="text-2xl lg:text-3xl font-bold text-center text-nowrap lg:text-start mb-6">Shop by Category</h2>
 
