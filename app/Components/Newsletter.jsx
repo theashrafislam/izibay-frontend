@@ -8,7 +8,7 @@ const Newsletter = () => {
       <div className="max-w-3xl mx-auto text-center">
         
         {/* Title */}
-        <h4 className="text-3xl font-bold text-gray-800 mb-3">
+        <h4 className="text-2xl lg:text-3xl font-bold text-center text-nowrap text-black mb-3">
           Newsletter
         </h4>
 
