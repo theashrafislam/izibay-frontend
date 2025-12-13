@@ -1,6 +1,7 @@
-"use client";
+// "use client";
 
 import React from "react";
+import FeaturedProductsCard from "./FeaturedProductCard"
 
 // Example product data
 const products = [
@@ -8,6 +9,7 @@ const products = [
         id: 1,
         name: "Classic White T-Shirt",
         price: "Tk 299.00",
+        discountPrice: "Tk 150.00",
         image:
             "https://nobero.com/cdn/shop/files/white_855177b5-5621-4a4b-a0d1-9060b89a6a69.jpg?v=1711979035&width=1066",
         colors: ["#FFFFFF", "#000000", "#FF0000"],
@@ -24,6 +26,7 @@ const products = [
         id: 3,
         name: "Casual Hoodie",
         price: "Tk 299.00",
+        discountPrice: "Tk 150.00",
         image:
             "https://m.media-amazon.com/images/I/71m9WX--hpL._AC_SL400_.jpg",
         colors: ["#9CA3AF", "#111827", "#F59E0B"],
@@ -33,13 +36,14 @@ const products = [
         name: "Street Style Jacket",
         price: "Tk 299.00",
         image:
-            "https://hips.hearstapps.com/hbz.h-cdn.co/assets/16/03/2560x1280/landscape-1453234125-hbz-milan-street-index.jpg?resize=1800:*",
+            "https://www.byrdie.com/thmb/K2lavtBrr2pDT94hm7QFYNq7Kdk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Byrdie-Spring-Jacket-Trends-Colorful-Trench-e6f5c01385d441659a57fc1c1b788543-34d14e0ca6664b9b838be88036c9a689.jpg",
         colors: ["#374151", "#D97706", "#10B981"],
     },
     {
         id: 5,
         name: "Urban Fashion Tee",
         price: "Tk 299.00",
+        discountPrice: "Tk 20.00",
         image:
             "https://i5.walmartimages.com/seo/YOUNGLA-Mens-Hipster-Hip-Hop-Urban-Modern-Tees-Street-Fashion-Streetwear-Stylish-Longline-Print-T-Shirt_a24658d4-5673-4080-8d9f-5f2bc34fd45e.ec16aa7d6c141018f425a083ebbc77a0.jpeg",
         colors: ["#F87171", "#3B82F6", "#FACC15"],
@@ -59,33 +63,10 @@ const FeaturedProducts = () => {
             </div>
 
             {/* Product Grid */}
-            <div className="max-w-7xl mx-auto px-4 lg:px-0 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="max-w-7xl mx-auto px-4 lg:px-0 grid gap-8 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {products.map((product, index) => (
-                    <div key={index} className="flex flex-col rounded-xl justify-between w-full lg:w-60 h-[400px] bg-white">
-                        <div className="h-4/6 w-full">
-                            <img
-                                src={product?.image}
-                                alt={product?.name}
-                                className="w-full h-full rounded-xl rounded-b-none object-cover"
-                            />
-                        </div>
-                        <div className="p-3 h-2/6 flex flex-col justify-end gap-1">
-
-                            {/* info  */}
-                            <h3 className="font-semibold text-xl text-[#1A1A1A]">{product?.name}</h3>
-                            <p className="text-[#1A1A1AB3]">{product?.price}</p>
-
-                            {/* Color dots */}
-                            <div className="flex gap-2 mt-1">
-                                {product?.colors?.map((color, index) => (
-                                    <span
-                                        key={index}
-                                        className="w-4 h-4 rounded-full border border-gray-300"
-                                        style={{ backgroundColor: color }}
-                                    ></span>
-                                ))}
-                            </div>
-                        </div>
+                    <div key={index}>
+                        <FeaturedProductsCard product={product}/>
                     </div>
                 ))}
             </div>

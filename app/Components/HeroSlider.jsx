@@ -36,8 +36,9 @@ export default function HeroSlider() {
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-10 left-10 text-white text-xl sm:text-2xl lg:text-4xl font-bold">
-                {slide.title}
+              <div className="absolute bottom-10 left-10 text-red-500 text-xl sm:text-2xl lg:text-4xl font-bold">
+                <p>{slide.title}</p>
+                <p>You can use any text, button and others.</p>
               </div>
             </div>
           </SwiperSlide>
