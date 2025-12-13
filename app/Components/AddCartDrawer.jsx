@@ -55,8 +55,8 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
                 <div className="overflow-y-auto flex flex-col h-full pt-8 px-6">
 
                     <div className='flex items-start gap-2'>
-                        <div className='w-[30%]'>
-                            <img src="https://nobero.com/cdn/shop/files/white_855177b5-5621-4a4b-a0d1-9060b89a6a69.jpg?v=1711979035&width=1066" alt="" />
+                        <div className='w-[30%] h-30 md:h-32 lg:h-40'>
+                            <img src="https://nobero.com/cdn/shop/files/white_855177b5-5621-4a4b-a0d1-9060b89a6a69.jpg?v=1711979035&width=1066" alt="" className=' h-full w-full object-contain'/>
                         </div>
                         <div className='w-[60%] flex flex-col gap-2'>
                             <h4 className='font-bold'>Baby Cotton Sleeping Bag with Warm Padding</h4>

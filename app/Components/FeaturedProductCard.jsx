@@ -30,7 +30,7 @@ const FeaturedProductCard = ({ product }) => {
                     />
 
                     {/* Add to Cart Icon Button (Mobile & Tablet only) */}
-                    <button className="absolute -bottom-4 right-3 bg-red-600 text-white p-2 rounded-full shadow-md hover:bg-red-700 transition-colors duration-300 block md:hidden">
+                    <button className="absolute -bottom-4 right-3 bg-red-600 text-white p-2 rounded-full shadow-md hover:bg-red-700 transition-colors duration-300 block lg:hidden">
                         <FiShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" onClick={toggleCart} />
                     </button>
                 </div>
