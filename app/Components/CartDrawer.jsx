@@ -60,7 +60,7 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
         {/* Cart Content */}
         <div className="h-full flex flex-col overflow-hidden scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
           <div className="p-4 pb-0">
-            <h2 className="text-xl lg:text-2xl font-bold">Cart</h2>
+            <h2 className="text-xl lg:text-2xl font-bold">Carts</h2>
           </div>
 
           {/* Example Items */}

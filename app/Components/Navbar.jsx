@@ -10,6 +10,8 @@ import SearchDrawer from "./SearchDrawer"
 
 const Navbar = () => {
 
+    const itemCount = 5;
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -74,8 +76,15 @@ const Navbar = () => {
 
                 {/* cart icon  */}
                 <div>
-                    <IoCartOutline className='text-3xl' onClick={handleCartToggle} />
+                    <div className="relative cursor-pointer" onClick={handleCartToggle}>
+                        <IoCartOutline className="text-3xl" />
 
+                        {itemCount > 0 && (
+                            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-semibold">
+                                {itemCount}
+                            </span>
+                        )}
+                    </div>
                     {/* cart drawer  */}
                     <CartDrawer isOpen={isCartOpen} toggleCart={handleCartToggle} />
                 </div>
