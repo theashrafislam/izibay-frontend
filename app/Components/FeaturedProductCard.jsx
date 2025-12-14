@@ -8,8 +8,17 @@ const FeaturedProductCard = ({ product }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isShowButton, setIsShowButton] = useState(false);
-
     const [isDesktop, setIsDesktop] = useState(false);
+
+    const [selectedColor, setSelectedColor] = useState(null);
+    // const isActiveImage = isHovered && product.hoverImage ? product.hoverImage : product.image;
+    const isActiveImage =
+        isDesktop && isHovered && product.hoverImage
+            ? product.hoverImage
+            : selectedColor
+                ? selectedColor.image
+                : product.image;
+
 
     // Check screen size for desktop
     useEffect(() => {
@@ -45,7 +54,7 @@ const FeaturedProductCard = ({ product }) => {
 
                     {/* Image */}
                     <img
-                        src={isHovered && product.hoverImage ? product.hoverImage : product.image}
+                        src={isActiveImage}
                         alt={product.name}
                         className="w-full h-full rounded-xl rounded-b-none object-cover transition-all duration-3000"
                     />
@@ -82,10 +91,16 @@ const FeaturedProductCard = ({ product }) => {
                     <div className="flex gap-2 mt-1">
                         {product?.colors?.map((color, index) => (
                             <span
-                                key={index}
-                                className="w-5 h-5 rounded-full border border-gray-300"
-                                style={{ backgroundColor: color }}
-                            ></span>
+                            key={index}
+                                onClick={() => setSelectedColor(color)}
+                                className={`w-5 h-5 rounded-full border cursor-pointer
+    ${selectedColor?.id === color.id
+                                        ? "border-black scale-110"
+                                        : "border-gray-300"
+                                    }
+  `}
+                                style={{ backgroundColor: color.hex }}
+                            />
                         ))}
                     </div>
                 </div>
