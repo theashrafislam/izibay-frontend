@@ -2,8 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import AddCartDrawer from "./AddCartDrawer"
+import Link from 'next/link';
 
 const FeaturedProductCard = ({ product }) => {
+
+    console.log(product);
 
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
@@ -33,7 +36,9 @@ const FeaturedProductCard = ({ product }) => {
     };
 
     return (
-        <div className='flex items-center justify-center'>
+        <Link
+            href={`/products/${product?.categorySlug}/${product?.name.replace(/\s+/g, "-").toLowerCase()}`}
+            className='flex items-center justify-center'>
             <div
                 onMouseEnter={() => setIsShowButton(true)}
                 onMouseLeave={() => setIsShowButton(false)}
@@ -91,7 +96,7 @@ const FeaturedProductCard = ({ product }) => {
                     <div className="flex gap-2 mt-1">
                         {product?.colors?.map((color, index) => (
                             <span
-                            key={index}
+                                key={index}
                                 onClick={() => setSelectedColor(color)}
                                 className={`w-5 h-5 rounded-full border cursor-pointer
     ${selectedColor?.id === color.id
@@ -111,7 +116,7 @@ const FeaturedProductCard = ({ product }) => {
                 toggleDrawer={toggleCart}
                 cartItems={[product]}
             />
-        </div>
+        </Link>
     );
 };
 

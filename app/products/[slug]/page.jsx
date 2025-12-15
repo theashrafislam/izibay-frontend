@@ -1,6 +1,6 @@
 import CategoryTabs from "@/app/Components/CategoryTabs";
 
-const ProductDetailsPage = async ({ params }) => {
+const CategoryProductsPage = async ({ params }) => {
     const { slug } = await params;
 
     console.log(slug);
@@ -21,4 +21,4 @@ const ProductDetailsPage = async ({ params }) => {
     );
 };
 
-export default ProductDetailsPage;
+export default CategoryProductsPage;
