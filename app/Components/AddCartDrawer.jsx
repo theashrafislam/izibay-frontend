@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { FiShoppingCart } from 'react-icons/fi';
 import Button from './ui/Button';
+import SizeSelector from "./ui/SizeSelector"
 
 const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
 
@@ -151,7 +152,7 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
                         </div>
 
                         {/* Size */}
-                        <div className="flex flex-col gap-2">
+                        {/* <div className="flex flex-col gap-2">
                             {(() => {
                                 const [activeSize, setActiveSize] = useState("XXL");
 
@@ -179,7 +180,8 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
                                     </>
                                 );
                             })()}
-                        </div>
+                        </div> */}
+                        <SizeSelector />
                     </div>
 
                     {/* Quantity */}
