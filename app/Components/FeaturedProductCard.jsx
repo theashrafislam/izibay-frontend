@@ -6,8 +6,6 @@ import Link from 'next/link';
 
 const FeaturedProductCard = ({ product }) => {
 
-    console.log(product);
-
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [isShowButton, setIsShowButton] = useState(false);
@@ -31,13 +29,21 @@ const FeaturedProductCard = ({ product }) => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const toggleCart = () => {
+    const toggleCart = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         setIsCartOpen(!isCartOpen);
     };
 
+    const handelColor = (e, color) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setSelectedColor(color);
+    }
+
     return (
         <Link
-            href={`/products/${product?.categorySlug}/${product?.name.replace(/\s+/g, "-").toLowerCase()}`}
+            href={`/products/${product?.categorySlug}/${product?.id}`}
             className='flex items-center justify-center'>
             <div
                 onMouseEnter={() => setIsShowButton(true)}
@@ -69,7 +75,7 @@ const FeaturedProductCard = ({ product }) => {
 
                     {/* Add to Cart Icon Button (Mobile & Tablet only) */}
                     <button className="absolute -bottom-4 right-3 bg-red-600 text-white p-2 rounded-full shadow-md hover:bg-red-700 transition-colors duration-300 block lg:hidden">
-                        <FiShoppingCart className="w-4 h-4" onClick={toggleCart} />
+                        <FiShoppingCart className="w-4 h-4" onClick={(e) => toggleCart(e)} />
                     </button>
                 </div>
 
@@ -97,7 +103,7 @@ const FeaturedProductCard = ({ product }) => {
                         {product?.colors?.map((color, index) => (
                             <span
                                 key={index}
-                                onClick={() => setSelectedColor(color)}
+                                onClick={(e) => handelColor(e, color)}
                                 className={`w-5 h-5 rounded-full border cursor-pointer
     ${selectedColor?.id === color.id
                                         ? "border-black scale-110"
