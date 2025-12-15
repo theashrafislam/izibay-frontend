@@ -41,6 +41,13 @@ const FeaturedProductCard = ({ product }) => {
         setSelectedColor(color);
     }
 
+    const handleAddCart = (e, id) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(e);
+        // console.log(id);
+    }
+
     return (
         <Link
             href={`/products/${product?.categorySlug}/${product?.id}`}
@@ -71,7 +78,7 @@ const FeaturedProductCard = ({ product }) => {
                     />
 
                     {/* button for desktop  */}
-                    {isShowButton && <button className='absolute hidden lg:block text-nowrap rounded-full bg-red-500 px-4 text-[10px] font-bold text-white right-2 bottom-2 py-2'>Add to Cart</button>}
+                    {isShowButton && <button onClick={(e) => handleAddCart(e, product?.id)} className='absolute hidden lg:block text-nowrap rounded-full bg-red-500 px-4 text-[10px] font-bold text-white right-2 bottom-2 py-2'>Add to Cart</button>}
 
                     {/* Add to Cart Icon Button (Mobile & Tablet only) */}
                     <button className="absolute -bottom-4 right-3 bg-red-600 text-white p-2 rounded-full shadow-md hover:bg-red-700 transition-colors duration-300 block lg:hidden">
