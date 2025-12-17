@@ -12,3 +12,11 @@ html, body {
     transform: translateX(calc(-1 * var(--marquee-width)));
   }
 }
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

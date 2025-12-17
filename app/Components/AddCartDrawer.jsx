@@ -5,6 +5,7 @@ import { IoClose } from 'react-icons/io5';
 import { FiShoppingCart } from 'react-icons/fi';
 import Button from './ui/Button';
 import SizeSelector from "./ui/SizeSelector"
+import ColorSelector from "./ColorSelector"
 
 const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
 
@@ -112,75 +113,11 @@ const AddCartDrawer = ({ isOpen, toggleDrawer, cartItems = [] }) => {
                             </p>
                         </div>
 
-
-                        {/* Color */}
-                        <div className="flex flex-col gap-2">
-                            {(() => {
-                                const colors = [
-                                    { name: "White", value: "bg-white" },
-                                    { name: "Gray", value: "bg-gray-400" },
-                                    { name: "Black", value: "bg-black" },
-                                    { name: "Golden Olive", value: "bg-[#8B7D2B]" },
-                                ];
-
-                                const [activeColor, setActiveColor] = useState(colors[2]);
-
-                                return (
-                                    <>
-                                        <p className="text-sm font-medium">
-                                            Color: <span className="font-semibold">{activeColor.name}</span>
-                                        </p>
-
-                                        <div className="flex gap-3 items-center justify-center">
-                                            {colors.map((color) => (
-                                                <div
-                                                    key={color.name}
-                                                    onClick={() => setActiveColor(color)}
-                                                    className={`w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition
-                ${activeColor.name === color.name
-                                                            ? "border-2 border-black"
-                                                            : "border border-gray-300 hover:border-black"
-                                                        }`}
-                                                >
-                                                    <div className={`w-5 h-5 rounded-full ${color.value}`}></div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </>
-                                );
-                            })()}
-                        </div>
+                        {/* color  */}
+                        <ColorSelector />
 
                         {/* Size */}
-                        {/* <div className="flex flex-col gap-2">
-                            {(() => {
-                                const [activeSize, setActiveSize] = useState("XXL");
-
-                                return (
-                                    <>
-                                        <p className="text-sm font-medium">
-                                            Size: <span className="font-semibold">{activeSize}</span>
-                                        </p>
-
-                                        <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-                                            {["S", "M", "L", "XL", "XXL"].map((size) => (
-                                                <button
-                                                    key={size}
-                                                    onClick={() => setActiveSize(size)}
-                                                    className={`rounded-full px-3 py-1.5 text-sm text-center border transition-all duration-200
-                ${activeSize === size
-                                                            ? "bg-black text-white border-black"
-                                                            : "border-gray-300 hover:border-black hover:bg-black hover:text-white"
-                                                        }`}
-                                                >
-                                                    {size}
-                                                </button>
-                                            ))}
-                                        </div>
-                                    </>
-                                );
-                            })()}
-                        </div> */}
+                        
                         <SizeSelector />
                     </div>
 
