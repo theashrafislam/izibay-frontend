@@ -31,7 +31,7 @@ const AccordionItem = ({ title, children }) => {
 
 const ProductInfoAccordion = () => {
   return (
-    <div className="space-y-4 max-w-3xl mx-auto">
+    <div className="space-y-4 max-w-7xl mx-auto">
       {/* Discount Box */}
       <div className="bg-[#EAF2ED] text-[#00A341] rounded-lg p-4">
         <p className="text-lg font-semibold flex items-center gap-2">
