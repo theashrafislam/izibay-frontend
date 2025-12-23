@@ -8,6 +8,7 @@ import ProductInfoAccordion from "../../../Components/ProductInfoAccordion";
 import CustomerReviews from "../../../Components/CustomerReviews";
 import FeaturesSection from "../../../Components/FeaturesSection";
 import YouMayAlsoLike from "../../../Components/YouMayAlsoLike";
+import ProductImageGallery from "../../../Components/ProductImageGallery";
 
 const productImages = [
     "https://levin.com.bd/cdn/shop/files/web-4_0cbc1138-b3c8-4015-8b32-0f48d4f5652b.jpg?v=1700558025&width=800",
@@ -47,30 +48,12 @@ const ProductDetailsPage = async ({ params }) => {
             <div className="max-w-7xl mx-auto py-10 flex flex-col lg:flex-row items-start gap-12">
 
                 {/* image section  */}
-                <div className="flex flex-col-reverse lg:flex-row gap-4 items-start px-4 lg:px-0">
-
-                    {/* change for main images  */}
-                    <div className="w-full flex flex-row lg:flex-col  gap-2 lg:w-28 max-h-[500px] overflow-y-auto scrollbar-hide">
-                        {productImages.map((img, index) => (
-                            <img key={index} src={img} alt="" className="rounded-lg w-24 lg:w-28" />
-                        ))}
-
-                    </div>
-
-                    {/* showing big image  */}
-                    <div className="h-[500px] flex-1">
-                        <div className="flex items-center justify-center">
-                            <img src="https://levin.com.bd/cdn/shop/files/web-1_262edaf7-e43e-4343-8adf-16890c53eaec.jpg?v=1765702263&width=800" alt="" className="rounded-xl max-h-full max-w-full object-cover" />
-                        </div>
-                    </div>
-                    
-                </div>
+                <ProductImageGallery productImages={productImages}/>
 
                 <div className="text-[#1A1A1A] space-y-6 px-4 lg:px-0">
                     <h3 className="text-5xl font-semibold">Women’s Premium Ribbed Knit Midi Skirt</h3>
                     <p className="text-lg">Tk 499.00</p>
                     <p className="text-sm border-b pb-2">Shipping calculated at checkout.</p>
-
                     {/* Size */}
                     <SizeSelector />
 
