@@ -51,7 +51,7 @@ const ProductDetailsPage = async ({ params }) => {
                 <ProductImageGallery productImages={productImages}/>
 
                 <div className="text-[#1A1A1A] space-y-6 px-4 lg:px-0">
-                    <h3 className="text-5xl font-semibold">Women’s Premium Ribbed Knit Midi Skirt</h3>
+                    <h3 className="text-2xl lg:text-5xl font-semibold">Women’s Premium Ribbed Knit Midi Skirt</h3>
                     <p className="text-lg">Tk 499.00</p>
                     <p className="text-sm border-b pb-2">Shipping calculated at checkout.</p>
                     {/* Size */}
