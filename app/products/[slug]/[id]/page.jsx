@@ -5,6 +5,7 @@ import QuantitySelector from "../../../Components/QuantitySelector";
 import SizeSelector from "../../../Components/ui/SizeSelector";
 import Button from "../../../Components/ui/Button"
 import ProductInfoAccordion from "../../../Components/ProductInfoAccordion";
+import CustomerReviews from "../../../Components/CustomerReviews";
 
 const ProductDetailsPage = async ({ params }) => {
     // const { name } = await params;
@@ -30,6 +31,7 @@ const ProductDetailsPage = async ({ params }) => {
         <div className="bg-[#F0F0F0]">
             <div className="max-w-7xl mx-auto py-10 flex flex-col lg:flex-row items-start gap-12">
 
+                {/* image section  */}
                 <div className="flex flex-col-reverse lg:flex-row gap-4 items-start">
                     {/* change for main images  */}
                     <div className="flex flex-row lg:flex-col  gap-2 w-28 max-h-[500px] overflow-y-auto scrollbar-hide">
@@ -46,11 +48,11 @@ const ProductDetailsPage = async ({ params }) => {
 
                     {/* showing big image  */}
                     <div className="max-h-[500px]">
-                        <img src="https://levin.com.bd/cdn/shop/files/web-1_262edaf7-e43e-4343-8adf-16890c53eaec.jpg?v=1765702263&width=800" alt="" className="rounded-xl" />
+                        <img src="https://levin.com.bd/cdn/shop/files/web-1_262edaf7-e43e-4343-8adf-16890c53eaec.jpg?v=1765702263&width=800" alt="" className="rounded-xl h-full w-full object-cover" />
                     </div>
                 </div>
 
-                <div className="text-[#1A1A1A] space-y-6 p-4 lg:px-0">
+                <div className="text-[#1A1A1A] space-y-6 px-4 lg:px-0">
                     <h3 className="text-5xl font-semibold">Women’s Premium Ribbed Knit Midi Skirt</h3>
                     <p className="text-lg">Tk 499.00</p>
                     <p className="text-sm border-b pb-2">Shipping calculated at checkout.</p>
@@ -71,6 +73,9 @@ const ProductDetailsPage = async ({ params }) => {
 
                     <ProductInfoAccordion />
                 </div>
+            </div>
+            <div className="max-w-7xl mx-auto">
+                <CustomerReviews />
             </div>
         </div>
     );
