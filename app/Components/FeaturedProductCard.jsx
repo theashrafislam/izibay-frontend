@@ -44,7 +44,7 @@ const FeaturedProductCard = ({ product }) => {
     const handleAddCart = (e, id) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log(e);
+        setIsCartOpen(!isCartOpen);
         // console.log(id);
     }
 
