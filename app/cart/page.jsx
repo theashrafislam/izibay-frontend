@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { IoTrashOutline, IoAdd, IoRemove, IoArrowBack } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Link from 'next/link';
+import Button from '../Components/ui/Button';
 
 const INITIAL_CART = [
     {
@@ -151,9 +152,10 @@ const CartPage = () => {
                                 <span className="text-3xl font-black text-gray-900">${total.toFixed(2)}</span>
                             </div>
 
-                            <button className="w-full bg-red-500 text-white py-5 rounded-2xl font-bold text-lg hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 active:scale-[0.98]">
+                            {/* <button className="w-full bg-red-500 text-white py-5 rounded-2xl font-bold text-lg hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-100 active:scale-[0.98]">
                                 Checkout Now
-                            </button>
+                            </button> */}
+                            <Button color={"red"} name={"Checkout Now"}/>
 
                             <div className="mt-8 flex flex-wrap justify-center gap-4 grayscale opacity-40">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="visa" className="h-4" />

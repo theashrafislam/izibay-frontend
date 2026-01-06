@@ -1,5 +1,6 @@
 import CategoryTabs from "@/app/Components/CategoryTabs";
 
+
 const CategoryProductsPage = async ({ params }) => {
     const { slug } = await params;
 
