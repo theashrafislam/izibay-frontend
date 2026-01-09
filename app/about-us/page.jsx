@@ -16,7 +16,7 @@ const AboutUs = () => {
                 {/* Content */}
                 <div className="flex flex-col gap-5 text-gray-700 text-sm sm:text-base leading-relaxed">
                     <p>
-                        Levin is a specialized fashion brand focusing on lifestyle and
+                        Izibay is a specialized fashion brand focusing on lifestyle and
                         quality improvement items. The company started operations in 2016
                         in Bangladesh, and began online operations in 2017. The philosophy
                         behind the company is to establish a national brand in fashion
@@ -29,7 +29,7 @@ const AboutUs = () => {
                     </p>
 
                     <p>
-                        Today, Levin is one of the most reliable quality fashion product
+                        Today, Izibay is one of the most reliable quality fashion product
                         e-commerce companies in Bangladesh, offering a wide range of
                         lifestyle products.
                     </p>
