@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 
@@ -28,17 +29,15 @@ const Footer = () => {
 
                     <div className='hidden lg:block'>
                         <h5 className="font-bold mb-2">Support</h5>
-                        <ul className="space-y-2">
-                            <li>About Levin</li>
-                            <li>Contact Us</li>
-                            <li>Career</li>
-                            <li>Report an Issue</li>
-                            <li>Return, Refund & Exchange</li>
+                        <ul className="flex flex-col gap-2">
+                            <Link href={'/about-us'}>About Izibay</Link>
+                            <Link href={'/contact-us'}>Contact Us</Link>
+                            <Link href={'/report-issue'}>Report an Issue</Link>
                         </ul>
                     </div>
 
                     {/* for only mobile and table  */}
-                    <div className='lg:hidden flex items-center justify-between'>
+                    <div className='lg:hidden flex items-start justify-between'>
                         <div>
                             <h5 className="font-bold mb-2">Policies</h5>
                             <ul className="space-y-2">
@@ -52,12 +51,10 @@ const Footer = () => {
 
                         <div>
                             <h5 className="font-bold mb-2">Support</h5>
-                            <ul className="space-y-2">
-                                <li>About Izibay</li>
-                                <li>Contact Us</li>
-                                <li>Career</li>
-                                <li>Report an Issue</li>
-                                <li>Return, Refund & Exchange</li>
+                            <ul className="flex flex-col gap-2">
+                                <Link href={'/about-us'}>About Izibay</Link>
+                                <Link href={'/contact-us'}>Contact Us</Link>
+                                <Link href={'/report-issue'}>Report an Issue</Link>
                             </ul>
                         </div>
                     </div>
@@ -67,11 +64,11 @@ const Footer = () => {
                         <ul className="space-y-2">
                             <li className="flex gap-2">
                                 <strong>Email:</strong>
-                                <span>Hello@izibay.com.bd</span>
+                                <span>hello@izibay.com.bd</span>
                             </li>
                             <li className="flex gap-2">
                                 <strong>Contact:</strong>
-                                <span>+880 1601-066663</span>
+                                <span>+880 1600000000</span>
                             </li>
                             <li>
                                 <strong>Address:</strong> House 02, Road 23, Sector 07, Uttara, Dhaka
