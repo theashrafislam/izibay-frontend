@@ -4,7 +4,7 @@ import FeaturesSection from "../Components/FeaturesSection"
 const AboutUs = () => {
     return (
         <section className="bg-[#F0F0F0]">
-            <div className="max-w-4xl mx-auto min-h-screen px-4 sm:px-6 lg:px-0 py-12 flex flex-col gap-8">
+            <div className="max-w-4xl mx-auto min-h-screen px-4 lg:px-0 py-10 flex flex-col gap-8">
 
                 {/* Header */}
                 <div className="text-center">
