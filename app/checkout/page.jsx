@@ -6,8 +6,8 @@ export default function CheckoutPage() {
     const [payment, setPayment] = useState("cod");
 
     return (
-        <div className="min-h-screen bg-[#F0F0F0] px-4 py-10">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="min-h-screen bg-[#F0F0F0] px-4 lg:px-0  py-10">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                 {/* LEFT: Checkout Form */}
                 <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
