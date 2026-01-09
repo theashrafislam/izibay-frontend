@@ -1,4 +1,5 @@
 import React from "react";
+import FeaturesSection from "../Components/FeaturesSection";
 
 const PaymentMethods = () => {
     return (
@@ -87,6 +88,7 @@ const PaymentMethods = () => {
                 </section>
 
             </div>
+            <FeaturesSection />
         </section>
     );
 };
