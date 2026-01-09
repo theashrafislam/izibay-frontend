@@ -3,8 +3,8 @@ import FeaturesSection from "../Components/FeaturesSection";
 
 const PaymentMethods = () => {
     return (
-        <section className="bg-[#F0F0F0] min-h-screen py-12 px-4 sm:px-6 lg:px-0">
-            <div className="max-w-5xl mx-auto p-6">
+        <section className="bg-[#F0F0F0] min-h-screen py-10 px-4 lg:px-0">
+            <div className="max-w-5xl mx-auto">
 
                 {/* Header */}
                 <div className="text-center mb-10">

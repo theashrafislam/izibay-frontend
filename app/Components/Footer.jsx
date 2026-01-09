@@ -18,12 +18,12 @@ const Footer = () => {
 
                     <div className='hidden lg:block'>
                         <h5 className="font-bold mb-2">Policies</h5>
-                        <ul className="space-y-2">
-                            <li>Privacy Policy</li>
-                            <li>Terms & Condition</li>
-                            <li>Shipping Policy</li>
-                            <li>Payment Method</li>
-                            <li>Return, Refund & Exchange</li>
+                        <ul className="flex flex-col gap-2">
+                            <Link href={'/privacy-policy'}>Privacy Policy</Link>
+                            <Link href={'/terms-and-conditions'}>Terms & Condition</Link>
+                            <Link href={'/delivery-policy'}>Shipping Policy</Link>
+                            <Link href={'/payment-method'}>Payment Method</Link>
+                            <Link href={'/return'}>Return, Refund & Exchange</Link>
                         </ul>
                     </div>
 
@@ -40,12 +40,12 @@ const Footer = () => {
                     <div className='lg:hidden flex items-start justify-between'>
                         <div>
                             <h5 className="font-bold mb-2">Policies</h5>
-                            <ul className="space-y-2">
-                                <li>Privacy Policy</li>
-                                <li>Terms & Condition</li>
-                                <li>Shipping Policy</li>
-                                <li>Payment Method</li>
-                                <li>Return, Refund & Exchange</li>
+                            <ul className="flex flex-col gap-2">
+                                <Link href={'/privacy-policy'}>Privacy Policy</Link>
+                                <Link href={'/terms-and-conditions'}>Terms & Condition</Link>
+                                <Link href={'/delivery-policy'}>Shipping Policy</Link>
+                                <Link href={'/payment-method'}>Payment Method</Link>
+                                <Link href={'/return'}>Return, Refund & Exchange</Link>
                             </ul>
                         </div>
 
