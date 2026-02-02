@@ -1,10 +1,26 @@
+"use client"
+
 import React from "react";
 import Button from "../Components/ui/Button";
 import { FcGoogle } from "react-icons/fc";
 import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
 
 const RegisterPage = () => {
+
+  const { googleSignIn } = useAuth();
+
+  const handleGoogleLogin = async () => {
+    try {
+      await googleSignIn();
+      console.log("Google login successful");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   return (
     <div className="bg-[#F0F0F0] py-16 flex flex-col items-center justify-center">
       <div
@@ -71,6 +87,7 @@ const RegisterPage = () => {
 
         {/* Google Register */}
         <button
+          onClick={handleGoogleLogin}
           className="
           w-full flex items-center justify-center gap-3 
           border border-gray-300 bg-white 
@@ -85,7 +102,7 @@ const RegisterPage = () => {
         {/* Login Redirect */}
         <div className="flex items-center justify-center pt-1">
           <Link
-          href={'/login'}
+            href={'/login'}
             className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer w-fit
             before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px]
             before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full"

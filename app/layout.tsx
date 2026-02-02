@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar"
 import Footer from "./Components/Footer"
 import Marquee from "react-fast-marquee";
 import { FaCircle } from "react-icons/fa";
+import AuthProviders from "./providers/AuthProviders";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -28,27 +29,28 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} antialiased min-h-screen flex flex-col`}
       >
-        {/* <Marquee> */}
-        {/* Top Section */}
-        <Marquee className="lg:py-3 bg-black text-white text-lg font-bold" speed={60}>
-          <p >10% Flat discount at order over BDT 999!</p>
-          <FaCircle className="px-4 text-white text-5xl" />
-          <p >20% Flat discount at order over BDT 1999!</p>
-          <FaCircle className="px-4 text-white text-5xl" />
-        </Marquee>
+        <AuthProviders>
+          {/* <Marquee> */}
+          {/* Top Section */}
+          <Marquee className="lg:py-3 bg-black text-white text-lg font-bold" speed={60}>
+            <p >10% Flat discount at order over BDT 999!</p>
+            <FaCircle className="px-4 text-white text-5xl" />
+            <p >20% Flat discount at order over BDT 1999!</p>
+            <FaCircle className="px-4 text-white text-5xl" />
+          </Marquee>
 
-        <div className="sticky top-0 z-50 bg-[#F0F0F0]">
-          <Navbar />
-        </div>
+          <div className="sticky top-0 z-50 bg-[#F0F0F0]">
+            <Navbar />
+          </div>
 
-        {/* Main Content Area — auto grows */}
-        <main className="grow">
-          {children}
-        </main>
+          {/* Main Content Area — auto grows */}
+          <main className="grow">
+            {children}
+          </main>
 
-        {/* Bottom Section */}
-        <Footer />
-
+          {/* Bottom Section */}
+          <Footer />
+        </AuthProviders>
       </body>
     </html>
   );

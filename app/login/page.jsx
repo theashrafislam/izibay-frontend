@@ -3,8 +3,22 @@ import { FcGoogle } from "react-icons/fc";
 import Button from "../Components/ui/Button";
 import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
+
+  const { googleSignIn } = useAuth();
+
+  const handleGoogleLogin = async () => {
+    try {
+      await googleSignIn();
+      console.log("Google login successful");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   return (
     <div className="bg-[#F0F0F0]">
       <div className="max-w-7xl mx-auto pt-16 flex flex-col items-center justify-center">
@@ -54,6 +68,7 @@ const LoginPage = () => {
 
           {/* Google Login */}
           <button
+            onClick={handleGoogleLogin}
             className="
           w-full flex items-center justify-center gap-3 
           border border-gray-300 bg-white 
