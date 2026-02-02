@@ -6,6 +6,7 @@ import Footer from "./Components/Footer"
 import Marquee from "react-fast-marquee";
 import { FaCircle } from "react-icons/fa";
 import AuthProviders from "./providers/AuthProviders";
+import { Toaster } from "react-hot-toast";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -46,6 +47,11 @@ export default function RootLayout({
           {/* Main Content Area — auto grows */}
           <main className="grow">
             {children}
+            {/* 🔥 Global Toaster */}
+            <Toaster
+              position="top-right"
+              reverseOrder={false}
+            />
           </main>
 
           {/* Bottom Section */}

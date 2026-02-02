@@ -1,9 +1,12 @@
+"use client"
+
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import Button from "../Components/ui/Button";
 import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
 
@@ -12,9 +15,9 @@ const LoginPage = () => {
   const handleGoogleLogin = async () => {
     try {
       await googleSignIn();
-      console.log("Google login successful");
+      toast.success("Successfully logged in 🎉");
     } catch (error) {
-      console.error(error);
+      toast.error(error.message);
     }
   };
 

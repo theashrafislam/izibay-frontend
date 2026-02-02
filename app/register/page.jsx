@@ -6,19 +6,20 @@ import { FcGoogle } from "react-icons/fc";
 import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
 
   const { googleSignIn } = useAuth();
 
   const handleGoogleLogin = async () => {
-    try {
-      await googleSignIn();
-      console.log("Google login successful");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    await googleSignIn();
+    toast.success("Successfully logged in 🎉");
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
 
 
   return (
