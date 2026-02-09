@@ -7,6 +7,7 @@ import { RiSearchLine } from 'react-icons/ri';
 import MenuBar from "./MenuBar"
 import CartDrawer from "./CartDrawer"
 import SearchDrawer from "./SearchDrawer"
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
 
@@ -17,6 +18,9 @@ const Navbar = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const toggleSearch = () => setIsSearchOpen(prev => !prev);
+
+    const { user, loading, logout } = useAuth();
+    console.log("Navbar Console: ", loading, user)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);

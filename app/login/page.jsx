@@ -1,16 +1,43 @@
 "use client"
 
-import React from "react";
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import Button from "../Components/ui/Button";
 import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
 
-  const { googleSignIn } = useAuth();
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { googleSignIn, loginUser } = useAuth();
+  const router = useRouter();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = loginData;
+
+    if (!email || !password) {
+      toast.error("Email এবং Password দেওয়া বাধ্যতামূলক");
+      return;
+    }
+
+    try {
+      await loginUser(email, password);
+      toast.success("Login successful ✅");
+      router.push("/");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
 
   const handleGoogleLogin = async () => {
     try {
@@ -40,34 +67,44 @@ const LoginPage = () => {
             Login
           </h5>
 
-          {/* Input fields */}
-          <div className="flex flex-col gap-5 pt-8">
-            <div className="text-left">
-              <label className="text-sm font-medium">Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
-              />
+          <form onSubmit={handleLogin}>
+            {/* Input fields */}
+            <div className="flex flex-col gap-5 py-8">
+              <div className="text-left">
+                <label className="text-sm font-medium">Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={loginData.email}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, email: e.target.value })
+                  }
+                  className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none"
+                />
+              </div>
+
+              <div className="text-left">
+                <label className="text-sm font-medium">Password</label>
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  value={loginData.password}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, password: e.target.value })
+                  }
+                  className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none"
+                />
+              </div>
             </div>
 
-            <div className="text-left">
-              <label className="text-sm font-medium">Password</label>
-              <input
-                type="password"
-                placeholder="Enter your password"
-                className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
-              />
-            </div>
-          </div>
+            {/* Forgot password */}
+            <p className="text-sm underline text-left cursor-pointer my-1">
+              Forgot your password?
+            </p>
 
-          {/* Forgot password */}
-          <p className="text-sm underline text-left cursor-pointer mt-1">
-            Forgot your password?
-          </p>
-
-          {/* Login button */}
-          <Button name={"Login"} color={"black"} />
+            {/* Login button */}
+            <Button name={"Login"} color={"black"} />
+          </form>
 
           {/* Google Login */}
           <button

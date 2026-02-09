@@ -7,10 +7,11 @@ import FeaturesSection from "../Components/FeaturesSection";
 import Link from "next/link";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
 
-  const { googleSignIn } = useAuth();
+  const { googleSignIn, registerUser, logout } = useAuth();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,18 +20,35 @@ const RegisterPage = () => {
     password: "",
   });
 
-  const handleRegister = (e) => {
+  const router = useRouter();
+
+
+  const handleRegister = async (e) => {
     e.preventDefault();
 
-    const { fullName, mobile, email, password } = formData;
+    const { email, password } = formData;
 
-    if (!fullName || !mobile || !email || !password) {
+    if (!email || !password) {
       toast.error("সবগুলো ঘর পূরণ করা বাধ্যতামূলক");
       return;
     }
 
-    console.log("Register Data:", formData);
-    toast.success("Form data collected ✅");
+    try {
+      await registerUser(email, password);
+      toast.success("Registration successful 🎉", {
+        duration: 4000,
+      });
+      setFormData({
+        fullName: "",
+        mobile: "",
+        email: "",
+        password: "",
+      });
+      await logout();
+      router.push("/login");
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const handleGoogleLogin = async () => {
