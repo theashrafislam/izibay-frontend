@@ -13,14 +13,24 @@ const Navbar = () => {
 
     const itemCount = 5;
 
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const toggleUserMenu = () => {
+        setIsUserMenuOpen(prev => !prev);
+    };
 
     const toggleSearch = () => setIsSearchOpen(prev => !prev);
 
     const { user, loading, logout } = useAuth();
     console.log("Navbar Console: ", loading, user)
+
+    const handleLogout = async () => {
+        await logout();
+    };
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -56,7 +66,33 @@ const Navbar = () => {
                 {/* icons button  */}
                 <div className='flex items-center gap-4'>
                     <RiSearchLine className='text-2xl' onClick={toggleSearch} />
-                    <FaRegUser className='text-2xl' />
+                    {user && (
+                        <div className="relative">
+                            <FaRegUser
+                                className="text-2xl cursor-pointer"
+                                onClick={toggleUserMenu}
+                            />
+
+                            {isUserMenuOpen && (
+                                <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg">
+                                    {/* menu items */}
+                                    <Link href="/profile" className="block px-4 py-2 hover:bg-gray-100">
+                                        Profile
+                                    </Link>
+                                    <Link href="/orders" className="block px-4 py-2 hover:bg-gray-100">
+                                        My Orders
+                                    </Link>
+                                    <button
+                                        onClick={handleLogout}
+                                        className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-500"
+                                    >
+                                        Logout
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                    {/* <FaRegUser className='text-2xl' /> */}
                     <IoCartOutline className='text-3xl' onClick={handleCartToggle} />
 
                 </div>
@@ -79,7 +115,7 @@ const Navbar = () => {
                 </div>
 
                 {/* cart icon  */}
-                <div>
+                <div className='flex items-center gap-2'>
                     <div className="relative cursor-pointer" onClick={handleCartToggle}>
                         <IoCartOutline className="text-3xl" />
 
@@ -91,6 +127,37 @@ const Navbar = () => {
                     </div>
                     {/* cart drawer  */}
                     <CartDrawer isOpen={isCartOpen} toggleCart={handleCartToggle} />
+
+
+                    {/* for only logged uses  */}
+                    {user && (
+                        <FaRegUser
+                            className="text-2xl cursor-pointer"
+                            onClick={toggleUserMenu}
+                        />
+                    )}
+                    {user && isUserMenuOpen && (
+                        <div className="absolute right-0 top-12 bg-white shadow-lg rounded-lg w-40 z-50">
+                            <Link href="/profile" className="block px-4 py-2 hover:bg-gray-100">
+                                Profile
+                            </Link>
+
+                            <Link href="/orders" className="block px-4 py-2 hover:bg-gray-100">
+                                My Orders
+                            </Link>
+
+                            <button
+                                onClick={async () => {
+                                    await logout();
+                                    setIsUserMenuOpen(false);
+                                }}
+                                className="w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )}
+
                 </div>
             </div>
 

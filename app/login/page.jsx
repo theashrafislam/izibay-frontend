@@ -43,6 +43,7 @@ const LoginPage = () => {
     try {
       await googleSignIn();
       toast.success("Successfully logged in 🎉");
+      router.push("/");
     } catch (error) {
       toast.error(error.message);
     }
