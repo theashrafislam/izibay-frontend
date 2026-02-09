@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Components/ui/Button";
 import { FcGoogle } from "react-icons/fc";
 import FeaturesSection from "../Components/FeaturesSection";
@@ -12,14 +12,35 @@ const RegisterPage = () => {
 
   const { googleSignIn } = useAuth();
 
+  const [formData, setFormData] = useState({
+    fullName: "",
+    mobile: "",
+    email: "",
+    password: "",
+  });
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const { fullName, mobile, email, password } = formData;
+
+    if (!fullName || !mobile || !email || !password) {
+      toast.error("সবগুলো ঘর পূরণ করা বাধ্যতামূলক");
+      return;
+    }
+
+    console.log("Register Data:", formData);
+    toast.success("Form data collected ✅");
+  };
+
   const handleGoogleLogin = async () => {
-  try {
-    await googleSignIn();
-    toast.success("Successfully logged in 🎉");
-  } catch (error) {
-    toast.error(error.message);
-  }
-};
+    try {
+      await googleSignIn();
+      toast.success("Successfully logged in 🎉");
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
 
   return (
@@ -38,53 +59,84 @@ const RegisterPage = () => {
           Sign Up
         </h5>
 
-        {/* Input Fields */}
-        <div className="flex flex-col gap-5 pt-8">
+        <form onSubmit={handleRegister}>
 
-          {/* First Name */}
-          <div className="text-left">
-            <label className="text-sm font-medium">First Name</label>
-            <input
-              type="text"
-              placeholder="Enter your first name"
-              className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
-            />
+          {/* Input Fields */}
+          <div className="flex flex-col gap-5 py-8">
+
+            {/* Full Name */}
+            <div className="text-left">
+              <label className="text-sm font-medium">Full Name</label>
+              <input
+                value={formData.fullName}
+                onChange={(e) =>
+                  setFormData({ ...formData, fullName: e.target.value })
+                }
+                required
+                type="text"
+                placeholder="Enter your full name"
+                className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
+              />
+            </div>
+
+            {/* Mobile Number */}
+            <div className="text-left mt-4">
+              <label className="text-sm font-medium">Mobile Number</label>
+              <input
+                required
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                placeholder="Enter your mobile number"
+                className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
+                value={formData.mobile}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    mobile: e.target.value.replace(/[^0-9]/g, ""),
+                  })
+                }
+              />
+            </div>
+
+            {/* Email */}
+            <div className="text-left">
+              <label className="text-sm font-medium">Email</label>
+              <input
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                required
+                type="email"
+                placeholder="Enter your email"
+                className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
+              />
+            </div>
+
+            {/* Password */}
+            <div className="text-left">
+              <label className="text-sm font-medium">Password</label>
+              <input
+                value={formData.password}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+                required
+                type="password"
+                placeholder="Create a password"
+                className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
+              />
+            </div>
+
           </div>
 
-          {/* Last Name */}
-          <div className="text-left">
-            <label className="text-sm font-medium">Last Name</label>
-            <input
-              type="text"
-              placeholder="Enter your last name"
-              className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
-            />
-          </div>
+          {/* Sign Up Button */}
+          <Button name={"Sign Up"} color={"black"} />
 
-          {/* Email */}
-          <div className="text-left">
-            <label className="text-sm font-medium">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
-            />
-          </div>
+        </form>
 
-          {/* Password */}
-          <div className="text-left">
-            <label className="text-sm font-medium">Password</label>
-            <input
-              type="password"
-              placeholder="Create a password"
-              className="border border-gray-300 w-full rounded-lg p-3 mt-1 outline-none focus:border-black transition"
-            />
-          </div>
 
-        </div>
-
-        {/* Sign Up Button */}
-        <Button name={"Sign Up"} color={"black"} />
 
         {/* Google Register */}
         <button
@@ -113,7 +165,7 @@ const RegisterPage = () => {
         </div>
       </div>
 
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
     </div>
   );
 };
