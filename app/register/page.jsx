@@ -54,7 +54,9 @@ const RegisterPage = () => {
   const handleGoogleLogin = async () => {
     try {
       await googleSignIn();
-      toast.success("Successfully logged in 🎉");
+      toast.success("Successfully logged in 🎉", {
+        duration: 4000
+      });
       router.push("/");
     } catch (error) {
       toast.error(error.message);

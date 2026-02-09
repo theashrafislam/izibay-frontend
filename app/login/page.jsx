@@ -31,7 +31,9 @@ const LoginPage = () => {
 
     try {
       await loginUser(email, password);
-      toast.success("Login successful ✅");
+      toast.success("Login successful ✅", {
+        duration: 4000
+      });
       router.push("/");
     } catch (error) {
       toast.error(error.message);
@@ -42,7 +44,9 @@ const LoginPage = () => {
   const handleGoogleLogin = async () => {
     try {
       await googleSignIn();
-      toast.success("Successfully logged in 🎉");
+      toast.success("Successfully logged in 🎉", {
+        duration: 4000
+      });
       router.push("/");
     } catch (error) {
       toast.error(error.message);
