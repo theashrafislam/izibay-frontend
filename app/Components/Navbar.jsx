@@ -130,6 +130,7 @@ const Navbar = () => {
 
 
                     {/* for only logged uses  */}
+                    {/* sesh hoye o hoylo na sesh  */}
                     {user && (
                         <FaRegUser
                             className="text-2xl cursor-pointer"
