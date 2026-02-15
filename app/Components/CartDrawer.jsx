@@ -1,9 +1,15 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import Button from "./ui/Button"
 import { BiSolidLock } from "react-icons/bi";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 const CartDrawer = ({ isOpen, toggleCart }) => {
+
+  const [cartItems, setCartItems] = useState([]);
 
   const [noteOpen, setNoteOpen] = useState(false);
 
@@ -11,6 +17,27 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
   const closeNote = () => setNoteOpen(false);
 
 
+  const router = useRouter();
+
+  const handleViewCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cartItems.length === 0) {
+      toast("Your cart is empty 🛒", {
+        icon: "⚠️",
+      });
+      return;
+    }
+
+    router.push("/cart");
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartItems(storedCart);
+    }
+  }, [isOpen]);
 
   // Prevent body scroll when drawer is open
   useEffect(() => {
@@ -66,75 +93,96 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
           {/* Example Items */}
           <div className="mt-2 py-4 space-y-4 px-4 overflow-y-auto flex-1">
 
-            {[1, 2, 3, 4, 5].map((item, index) => (
-              <div key={index} className="flex flex-row flex-wrap gap-3 w-full items-start">
+            {cartItems.length === 0 ?
+              <div>
 
-                {/* Image */}
-                <div className="flex-shrink-0 w-24 lg:w-[25%]">
+                {/* EMPTY CART */}
+                <div className="h-full flex flex-col items-center justify-center text-center gap-3">
                   <img
-                    alt="product"
-                    src="https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg?v=1759825167&width=160"
-                    className="w-full h-auto object-cover"
+                    src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
+                    alt="empty cart"
+                    className="w-32 opacity-60"
                   />
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    Your cart is empty
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    Looks like you haven’t added anything yet
+                  </p>
                 </div>
+              </div> : <div>
 
-                {/* Right Section: Text + Quantity */}
-                <div className="flex flex-1 flex-row flex-wrap lg:flex-row lg:justify-between gap-4 w-full">
+                {[1, 2, 3, 4, 5].map((item, index) => (
+                  <div key={index} className="flex flex-row flex-wrap gap-3 w-full items-start">
 
-                  {/* Product Info */}
-                  <div className="flex-1 flex flex-col gap-2 min-w-[150px]">
-                    <h4 className="text-[#1A1A1A] font-semibold">
-                      3 Pcs Assorted Toddler Baby Boys Cotton Trouser
-                    </h4>
-                    <div className="flex items-end justify-between">
-                      <div>
-                        {/* Price & Discount */}
-                        <div className="flex items-center gap-2">
-                          <p className="text-[#1A1A1A] font-semibold text-sm">Tk 450.00</p>
-                          <p className="text-[#EF4444] font-semibold text-sm line-through">Tk 500.00</p>
-                        </div>
-                        <p className="text-[#1A1A1AB3] text-sm text-nowrap">Pack of 3 / Newborn</p>
-                        <p className="text-[#1A1A1AB3] text-sm">Machine washable / Baby safe dyes</p>
-                      </div>
-                      {/* Quantity + Remove */}
-                      <div className="flex flex-col gap-2 items-center lg:items-end">
-
-                        {/* Quantity Controller */}
-                        <div className="flex items-center gap-3">
-
-                          {/* + Button (Left) */}
-                          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-lg font-semibold transition">
-                            +
-                          </button>
-
-                          {/* Quantity */}
-                          <p className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-semibold text-gray-700">
-                            1
-                          </p>
-
-                          {/* - Button (Right) */}
-                          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-lg font-semibold transition">
-                            –
-                          </button>
-
-                        </div>
-
-                        {/* Remove */}
-                        <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer
-     before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px]
-     before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
-                          Remove
-                        </p>
-                      </div>
-
+                    {/* Image */}
+                    <div className="flex-shrink-0 w-24 lg:w-[25%]">
+                      <img
+                        alt="product"
+                        src="https://levin.com.bd/cdn/shop/files/web-1_95185acb-febc-44c1-8c3c-7f16d4b3cba6.jpg?v=1759825167&width=160"
+                        className="w-full h-auto object-cover"
+                      />
                     </div>
 
+                    {/* Right Section: Text + Quantity */}
+                    <div className="flex flex-1 flex-row flex-wrap lg:flex-row lg:justify-between gap-4 w-full">
+
+                      {/* Product Info */}
+                      <div className="flex-1 flex flex-col gap-2 min-w-[150px]">
+                        <h4 className="text-[#1A1A1A] font-semibold">
+                          3 Pcs Assorted Toddler Baby Boys Cotton Trouser
+                        </h4>
+                        <div className="flex items-end justify-between">
+                          <div>
+                            {/* Price & Discount */}
+                            <div className="flex items-center gap-2">
+                              <p className="text-[#1A1A1A] font-semibold text-sm">Tk 450.00</p>
+                              <p className="text-[#EF4444] font-semibold text-sm line-through">Tk 500.00</p>
+                            </div>
+                            <p className="text-[#1A1A1AB3] text-sm text-nowrap">Pack of 3 / Newborn</p>
+                            <p className="text-[#1A1A1AB3] text-sm">Machine washable / Baby safe dyes</p>
+                          </div>
+                          {/* Quantity + Remove */}
+                          <div className="flex flex-col gap-2 items-center lg:items-end">
+
+                            {/* Quantity Controller */}
+                            <div className="flex items-center gap-3">
+
+                              {/* + Button (Left) */}
+                              <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-lg font-semibold transition">
+                                +
+                              </button>
+
+                              {/* Quantity */}
+                              <p className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center font-semibold text-gray-700">
+                                1
+                              </p>
+
+                              {/* - Button (Right) */}
+                              <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-lg font-semibold transition">
+                                –
+                              </button>
+
+                            </div>
+
+                            {/* Remove */}
+                            <p className="text-[12px] text-[#1A1A1AB3] relative cursor-pointer
+     before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[1px]
+     before:bg-[#1A1A1AB3] before:transition-all before:duration-300 hover:before:w-full">
+                              Remove
+                            </p>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+
+                    </div>
                   </div>
-
-
-                </div>
+                ))}
               </div>
-            ))}
+            }
 
 
           </div>
@@ -143,16 +191,17 @@ const CartDrawer = ({ isOpen, toggleCart }) => {
           <div className="space-y-2 border-t p-4 border-gray-300 sticky bottom-0 bg-white">
             <div className="flex items-center justify-between text-[#1A1A1A]">
               <h4 className="text-lg lg:text-2xl font-semibold">Total</h4>
-              <h4 className="text-lg lg:text-2xl font-semibold">Tk 450.00 BDT</h4>
+              <h4 className="text-lg lg:text-2xl font-semibold">{cartItems.length === 0 ? <span>Tk 00.00 BDT</span> : <span>Tk 450.00 BDT</span>}</h4>
             </div>
             <p className="text-[#1A1A1AB3] text-sm">Taxes and shipping calculated at checkout</p>
             <p className="text-[#1A1A1AB3] text-sm cursor-pointer underline" onClick={handleOrderNote}>Add order note</p>
 
             {/* button  */}
             <div className="flex items-center gap-3 pt-2">
-              <div className="flex-1">
+              <button onClick={handleViewCart} className="flex-1">
+
                 <Button name="View Cart" color="black" />
-              </div>
+              </button>
               <div className="flex-1">
                 <Button name="Check Out" color="red" icon={<BiSolidLock className="text-lg" />} />
               </div>

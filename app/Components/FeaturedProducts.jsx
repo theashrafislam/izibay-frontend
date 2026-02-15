@@ -1,7 +1,7 @@
 // "use client";
 
 import React from "react";
-import FeaturedProductsCard from "./FeaturedProductCard"
+import FeaturedProductsCard from "./ProductCard"
 
 // Example product data
 // const products = [

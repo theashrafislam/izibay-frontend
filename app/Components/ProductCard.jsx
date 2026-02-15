@@ -4,7 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import AddCartDrawer from "./AddCartDrawer"
 import Link from 'next/link';
 
-const FeaturedProductCard = ({ product }) => {
+const ProductCard = ({ product }) => {
 
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
@@ -126,11 +126,13 @@ const FeaturedProductCard = ({ product }) => {
             {/* Cart Drawer */}
             <AddCartDrawer
                 isOpen={isCartOpen}
+                setIsCartOpen={setIsCartOpen} 
                 toggleDrawer={toggleCart}
                 cartItems={[product]}
+                productId={product?.id}
             />
         </Link>
     );
 };
 
-export default FeaturedProductCard;
+export default ProductCard;

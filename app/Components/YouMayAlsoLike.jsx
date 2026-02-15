@@ -1,5 +1,5 @@
 import React from 'react';
-import FeaturedProductsCard from "../Components/FeaturedProductCard"
+import ProductCard from "../Components/ProductCard"
 
 
 
@@ -157,7 +157,7 @@ const YouMayAlsoLike = () => {
                 <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
                     {products.map((product, index) => (
                         <div key={index}>
-                            <FeaturedProductsCard product={product} />
+                            <ProductCard product={product} />
                         </div>
                     ))}
                 </div>

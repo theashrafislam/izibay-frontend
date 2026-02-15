@@ -1,5 +1,5 @@
 import React from 'react';
-import FeaturedProductsCard from './FeaturedProductCard';
+import FeaturedProductsCard from './ProductCard';
 import Pagination from './ui/Pagination';
 
 
